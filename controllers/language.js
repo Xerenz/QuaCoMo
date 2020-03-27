@@ -4,6 +4,7 @@ module.exports = function (app) {
 
     app.get("/malayalam", function (req, res) {
         i18n.setLocale('ml');
+        // TODO: write redirect
     });
 
     app.get("/english", function (req, res) {

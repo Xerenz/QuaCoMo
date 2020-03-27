@@ -23,7 +23,7 @@
 		<div class="collapse navbar-collapse " id="navbarSupportedContent">
 		  <ul class="navbar-nav mr-auto">
 			<li class="nav-item active">
-			  <a class="nav-link" href="/home">Home <span class="sr-only">(current)</span></a>
+			  <a class="nav-link" href="/home"><%=__('home')%><span class="sr-only">(current)</span></a>
 			</li>
 			<li class="nav-item">
 			  <a class="nav-link" href="#">Help</a>
@@ -40,8 +40,8 @@
 	<div class="container">
 		<nav aria-label="breadcrumb">
 			<ol class="breadcrumb">
-			  <li class="breadcrumb-item"><a href="/home">Home</a></li>
-			  <li class="breadcrumb-item active" aria-current="page">Login</li>
+			  <li class="breadcrumb-item"><a href="/home"><%=__('home')%></a></li>
+			  <li class="breadcrumb-item active" aria-current="page"><%=__('login')%></li>
 			</ol>
 		</nav>
 		
@@ -56,21 +56,21 @@
 		<form action="/login" method="POST">
 
 			<div class="form-group">
-				<label for="username">Email</label>
+				<label for="username"><%=__('phone')%></label>
 				<input name="username" type="email" id="email" class="form-control" required >
 			</div>
 			<div class="form-group">
-				<label for="password">Password</label>
+				<label for="password"><%=__('password')%></label>
 				<input name="password" type="password" id="pass" class="form-control" required>
 			</div>
 			<button id="register" class="btn btn-dark">
-				Login
+				<%=__('login')%>
 			</button>
 
 		</form>
 		<br><br>
-        <span>Don't have an account? </span>
-        <a href="/register">Register</a>
+        <span><%=__('hv_no_aac')%></span>
+        <a href="/register"><%=__('reg')%></a>
 
 	</div><!-- container ends  -->
 	
