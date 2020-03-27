@@ -1,4 +1,12 @@
 {
     "name":"Name",
-    "phone": "phone"
+    "phone": "Phone Number",
+    "aadhar": "Aadhar Number",
+    "password": "Password",
+    "reg": "Register",
+    "reg_title": "Shop Owner Registration",
+    "reg_desc": "Enter your details if you're a shop owner.",
+    "have_acc": "Already a user?",
+    "login": "Login",
+    "home": "Home"
 }

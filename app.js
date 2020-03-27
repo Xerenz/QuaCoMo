@@ -12,6 +12,7 @@ const middleware = require("./utils/middleware");
 const userController = require("./controllers/user");
 const adminController = require("./controllers/admin");
 const shopController = require("./controllers/shop");
+const languageController = require("./controllers/language");
 
 i18n.configure({
     locales:['en', 'ml'],
@@ -60,15 +61,10 @@ app.use((req, res, next) => {
 
 
 
-app.get("/", function (req, res) {
-    var newLocale = i18n.getLocale() === 'en' ? 'ml' : 'en';
-    i18n.setLocale(newLocale);
-    res.send("This is working just fine");
-});
-
 userController(app);
 adminController(app);
 shopController(app);
+languageController(app);
 
 const PORT = process.env.PORT || 8000;
 
