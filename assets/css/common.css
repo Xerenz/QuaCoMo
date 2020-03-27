@@ -1,0 +1,28 @@
+/* some custom classes - */
+
+.space-20{
+    height: 20px;
+    width: 100%;
+}
+
+.space-50{
+    height: 50px;
+    width: 100%;
+}
+
+.space-100{
+    height: 100px;
+    width: 100%;
+}
+
+/* --------------------- */
+
+
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+.footer{
+    width: 100%;
+    height: 100px;
+}
