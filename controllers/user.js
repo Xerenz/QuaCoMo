@@ -48,9 +48,8 @@ module.exports = function (app) {
         let newUser = new User({
             name: req.body.name,
             username: req.body.username,
-            email: req.body.username,
             aadhar: req.body.aadhar,
-            phone: req.body.phone,
+            isAdmin: false,
         });
 
         User.register(newUser, req.body.password, (err, user) => {
