@@ -46,7 +46,7 @@
 			</div>	
 			<div class="form-group">
 				<label>Phone Number : </label>
-				<input class="form-control" type="text" name="phone" id="phone" required>
+				<input class="form-control" type="text" name="phone" id="phone" pattern="[0-9]{10}" required>
 				<p id="phoneValidation"></p>
 			</div>
 			<!--
@@ -57,15 +57,15 @@
 			-->
 			<div class="form-group">
 				<label>Select District : </label>
-				<select id="district" class="form-control"></select>
+				<select id="district" class="form-control" required></select>
 			</div>
 			<div class="form-group">	
 				<label>Select Panchayat / Muncipality : </label>
-				<select id="panchayat" class="form-control"></select>
+				<select id="panchayat" class="form-control" required></select>
 			</div>
 			<div class="form-group">
 				<label>Select locality : </label>
-				<select id="locality" class="form-control"></select>
+				<select id="locality" class="form-control" ></select>
 			</div>
 			<div class="form-group">	
 				<label>Items that are short in your area :</label> <br>

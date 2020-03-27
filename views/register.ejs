@@ -46,7 +46,7 @@
 		</nav>
 		<div class="jumbotron jumbotron-fluid">
 			<div class="container">
-			  <h1 class="font-weight-lighter">User Registation</h1>
+			  <h1 class="font-weight-lighter">Shop Owner Registation</h1>
 			  <p class="lead">Enter your details if you are a shop owner</p>
 			</div>
 		</div>
@@ -62,23 +62,23 @@
 
 			<div class="form-group">
 				<label for="name">Name</label>
-				<input name="name" type="text" id="name"  class="form-control">
+				<input name="name" type="text" id="name"  class="form-control" required> 
 			</div>
 			<div class="form-group">
 				<label for="username">Email</label>
-				<input name="username" type="text" id="email" class="form-control">
+				<input name="username" type="email" id="email" class="form-control" required>
 			</div>
 			<div class="form-group">
 				<label for="phone">Phone Number</label>
-				<input name="phone" type="text" id="phone" class="form-control">
+				<input name="phone" type="text" id="phone" class="form-control" pattern="[0-9]{10}" placeholder="eg:8909765436" required>
 			</div>
 			<div class="form-group">
 				<label for="aadhar">Aadhar</label>
-				<input name="aadhar" type="text" id="aadhar" class="form-control">
+				<input name="aadhar" type="text" id="aadhar" class="form-control" pattern="[0-9]{12}" placeholder="eg:134287986543" required>
 			</div>
 			<div class="form-group">
-				<label for="password">Password</label>
-				<input name="password" type="password" id="pass" class="form-control">
+				<label for="password">Create a password</label>
+				<input name="password" type="text" id="pass" class="form-control" required>
 			</div>
 			<button type="submit" id="register" class="btn btn-dark">
 				Register
