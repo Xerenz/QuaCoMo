@@ -21,20 +21,6 @@ module.exports = function (app) {
     app.post("/shops/new",
         urlencodedParser,
         isLoggedIn,
-<<<<<<< HEAD
-        function(req, res) {
-        let shop = new Shop({
-            name : req.body.shop,
-            state : req.body.state,
-            district : req.body.district,
-            locality : req.body.locality,
-            phone : req.body.phone,
-            landmark : req.body.landmark,
-            isOpen : true,
-            items : req.body.items,
-            owner : req.user.id  
-        });
-=======
         function (req, res) {
             let shop = new Shop({
                 name: req.body.name,
@@ -57,7 +43,6 @@ module.exports = function (app) {
                         console.log(err);
                 }
             )
->>>>>>> 5e420d82cfc531e829169198db29a623812cfb3a
 
             shop.save(err => {
                 if (err)
