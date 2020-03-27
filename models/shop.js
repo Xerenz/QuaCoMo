@@ -7,6 +7,7 @@ let ShopSchema = new Schema({
     state: String,
     district: String,
     locality: String,
+    pincode: String,
     phone: String,
     landmark: String,
     isOpen: Boolean,
