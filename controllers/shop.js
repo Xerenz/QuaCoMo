@@ -9,8 +9,10 @@ var isLoggedIn = middleware.isLoggedIn;
 module.exports = function (app) {
 
     app.get("/shops", isLoggedIn, function (req, res) {
-        User.findById(req.user.id, user => {
+        User.findById(req.user.id).populate('shops').exec((err,user) => {
             res.render("shopOwner", { user: user });
+            console.log(user)
+            
         });
     });
 
@@ -49,7 +51,7 @@ module.exports = function (app) {
                     return console.log(err);
                 console.log("Shop added to db");
 
-                return res.redirect("/shop");
+                return res.redirect("/shops");
             });
         });
 
