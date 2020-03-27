@@ -43,9 +43,10 @@ module.exports = function (app) {
 
     app.post("/register", urlencodedParser, (req, res) => {
         let newUser = new User({
-            username: req.body.username,
+            name: req.body.name,
             email: req.body.email,
-            school: req.body.school, 
+            aadhar: req.body.aadhar,
+            phone: req.body.phone,
         });
 
         User.register(newUser, req.body.password, (err, user) => {
@@ -61,9 +62,9 @@ module.exports = function (app) {
             }
 
             passport.authenticate("local")(req, res, () => {
-                req.flash("success", "Welcome to Chatbot " + user.username);
+                req.flash("success", "Welcome to QuaCoMo " + user.username);
                 console.log("New user created: " + user.username);
-                res.redirect("/questions");
+                res.redirect("/shops");
             });
         });
     });

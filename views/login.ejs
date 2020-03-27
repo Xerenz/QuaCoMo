@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Register</title>
+    <title>Login</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	<script
@@ -68,36 +68,24 @@
 
     <div class="container">
 
-		<form action="/register" method="POST">
+		<form action="/login" method="POST">
 
-			<div class="form-group">
-				<label for="name">Name</label>
-				<input name="name" type="text" id="name" value="" class="form-control">
-			</div>
 			<div class="form-group">
 				<label for="email">Email</label>
 				<input name="email" type="text" id="email" class="form-control">
-			</div>
-			<div class="form-group">
-				<label for="phone">Phone Number</label>
-				<input name="phone" type="text" id="phone" class="form-control">
-			</div>
-			<div class="form-group">
-				<label for="aadhar">Aadhar</label>
-				<input name="aadhar" type="text" id="aadhar" class="form-control">
 			</div>
 			<div class="form-group">
 				<label for="pass">Password</label>
 				<input name="pass" type="password" id="pass" class="form-control">
 			</div>
 			<button id="register" class="btn btn-dark">
-				Register
+				Login
 			</button>
 
 		</form>
 		<br><br>
-        <span>Already a user? </span>
-        <a href="/login">Sign in</a>
+        <span>Don't have an account? </span>
+        <a href="/register">Sign up</a>
 
 	</div><!-- container ends  -->
 	
