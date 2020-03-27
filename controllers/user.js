@@ -20,7 +20,7 @@ module.exports = function (app) {
             }
             req.logIn(user, err => {
                 if (err) { return next(err); }
-                let redirectTo = req.session.redirectTo ? req.session.redirectTo : '/shops'; //TODO
+                let redirectTo = req.session.redirectTo ? req.session.redirectTo : '/addShop'; //TODO
                 delete req.session.redirectTo;
                 req.flash("success", "Good to see you again, " + user.username);
                 res.redirect(redirectTo);
@@ -47,13 +47,13 @@ module.exports = function (app) {
 
         let newUser = new User({
             name: req.body.name,
-            username: req.body.email,
-            email: req.body.email,
+            username: req.body.username,
+            email: req.body.username,
             aadhar: req.body.aadhar,
             phone: req.body.phone,
         });
 
-        User.register(newUser, req.body.pass, (err, user) => {
+        User.register(newUser, req.body.password, (err, user) => {
             if (err) {
                 if (err.name === 'MongoError' && err.code === 11000) {
                     // Duplicate email
@@ -66,16 +66,26 @@ module.exports = function (app) {
                 return res.redirect("/register");
             }
             console.log('status: ', req.isAuthenticated());
-            next();
+            passport.authenticate("local", function (err, user, info) {
+                console.log(err, user, info);
+                if (err) {
+                    console.log(err);
+                    return next(err);
+                }
+                if (!user) return res.redirect('/login');
+
+                req.logIn(user, function (err) {
+                    if (err) return next(err);
+                    return res.redirect("/addShop");
+                });
+
+            })(req, res, next);
             // passport.authenticate("local")(req, res, () => {
             //     req.flash("success", "Welcome to QuaCoMo " + user.username);
             //     console.log("New user created: " + user.username);
             //     res.redirect("/shops");
             // });
         });
-    }, passport.authenticate('local', {
-        successRedirect: '/account/profile',
-        failureRedirect: '/login'
-    }));
+    });
 
 }
