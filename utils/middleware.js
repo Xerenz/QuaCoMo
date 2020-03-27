@@ -1,4 +1,5 @@
 const User = require("../models/user");
+var i18n = require('i18n');
 
 // all middleware goes here
 const middlewareObj = {};
@@ -15,6 +16,11 @@ middlewareObj.hasAdminPrivelages = function (req, res, next) {
   req.session.redirectTo = req.originalUrl;
   req.flash("error", "You need admin privelages."); // add a one-time message before redirect
   res.redirect("/login");
+};
+
+middlewareObj.checkLang = function (req, res, next) {
+  res.setLocale(i18n.getLocale());
+  next();
 };
 
 

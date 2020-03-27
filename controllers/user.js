@@ -37,6 +37,8 @@ module.exports = function (app) {
 
 
     app.get("/register", function (req, res) {
+        // i18n.setLocale('en')
+        console.log(res.__('name'));
         res.render("register");
     });
 
