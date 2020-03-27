@@ -23,7 +23,7 @@ module.exports = function(app) {
         isLoggedIn,
         function(req, res) {
         let shop = new Shop({
-            name : req.body.name,
+            name : req.body.shop,
             state : req.body.state,
             district : req.body.district,
             locality : req.body.locality,

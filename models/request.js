@@ -4,9 +4,9 @@ const Schema = mongoose.Schema;
 const RequestSchema = new Schema(
     {
         // general info
-        commodity : String,
+        items : [String],
         description : String,
-        ward : String,
+        locality : String,
         punchayath : String,
         district : String,
         state : String,
