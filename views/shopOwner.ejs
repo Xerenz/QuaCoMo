@@ -4,43 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script
-			  src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-			  integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8="
-			  crossorigin="anonymous"></script>
 
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-  
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <%- include("partials/libraries") %> 
     
-	<link rel="stylesheet" type="text/css" href="../assets/css/common.css">
 </head>
 <body>
-    	<!-- Here goes navbar -->
-	<nav class="navbar  navbar-dark bg-dark fixed-top">
-		<a class="navbar-brand" href="#">QuaCoMo</a>
-		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-		  <span class="navbar-toggler-icon"></span>
-		</button>
-	  
-		<div class="collapse navbar-collapse " id="navbarSupportedContent">
-		  <ul class="navbar-nav mr-auto">
-			<li class="nav-item active">
-			  <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-			</li>
-			<li class="nav-item">
-			  <a class="nav-link" href="#">Help</a>
-			</li>
-			<li class="nav-item">
-				<a class="nav-link" href="#">Logout</a>
-			  </li>
-		  </ul>
-		  
-		</div>
-    </nav>
+   
+  <!-- navbar ===========-->
 
+  <%- include("partials/nav") %>
 
-    <!--================== -->
+  <!-- navbar ends -->
 	<div class="space-100"></div>
 	<div class="container">
 		<nav aria-label="breadcrumb">
@@ -50,7 +24,7 @@
 		</nav>
 		<div class="jumbotron jumbotron-fluid">
 			<div class="container">
-			 <a href="shop.html"> <button class="btn btn-danger">ADD SHOP</button></a> 
+			 <a href="/shops/new"> <button class="btn btn-danger">ADD SHOP</button></a> 
 			 <a href=""> <button class="btn btn-primary">EDIT PROFILE</button></a> 
 			</div>
         </div>

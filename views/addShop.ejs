@@ -6,55 +6,24 @@
 	<meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<script
-			  src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-			  integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8="
-			  crossorigin="anonymous"></script>
-
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-
+	
+	<%- include("partials/libraries") %> 
+	
 	<script type="text/javascript" src="../assets/js/select.js"></script>
-	<!-- edited by jithin k satheesh -->
-	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-
 	<link rel="stylesheet" type="text/css" href="../assets/css/shop.css">
-	<link rel="stylesheet" type="text/css" href="../assets/css/common.css">
-
-	<!-- (^_^) -->
+	
 
 </head>
 <body>
 	
 	<!-- Here goes navbar -->
-	<nav class="navbar  navbar-dark bg-dark fixed-top">
-		<a class="navbar-brand" href="#">QuaCoMo</a>
-		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-		  <span class="navbar-toggler-icon"></span>
-		</button>
-	  
-		<div class="collapse navbar-collapse " id="navbarSupportedContent">
-		  <ul class="navbar-nav mr-auto">
-			<li class="nav-item active">
-			  <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-			</li>
-			<li class="nav-item">
-			  <a class="nav-link" href="#">Help</a>
-			</li>
-			<li class="nav-item">
-				<a class="nav-link" href="#" id="logout">Logout</a>
-			  </li>
-		  </ul>
-		  
-		</div>
-		
-	  </nav>
-
-	  <!-- Header starts here -->
+	<%- include("partials/nav") %>
+	<!-- Header starts here -->
 	<div class="space-100"></div>
 	<div class="container">
 		<nav aria-label="breadcrumb">
 			<ol class="breadcrumb">
-			  <li class="breadcrumb-item"><a href="shopOwner.html">ShopOwnerDash</a></li>
+			  <li class="breadcrumb-item"><a href="/shops">ShopOwnerDash</a></li>
 			  <li class="breadcrumb-item active" aria-current="page">addShop</li>
 			</ol>
 		</nav>
