@@ -8,7 +8,7 @@ var userSchema = mongoose.Schema({
     aadhar: String,
     password: String,
     isAdmin: Boolean,
-    shops: { type: mongoose.Schema.Types.ObjectId, ref: "Shop" },
+    shops: [{ type: mongoose.Schema.Types.ObjectId, ref: "Shop" }],
 });
 
 userSchema.plugin(passportLocalMongoose);
