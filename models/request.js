@@ -4,10 +4,10 @@ const Schema = mongoose.Schema;
 const RequestSchema = new Schema(
     {
         // general info
-        commodity : String,
+        items : [String],
         description : String,
-        ward : String,
-        punchayath : String,
+        locality : String,
+        panchayath : String,
         district : String,
         state : String,
 

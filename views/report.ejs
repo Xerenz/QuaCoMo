@@ -39,7 +39,7 @@
 
 	<div class="container">
 
-		<form method="POST" action="/shop/addShop"	id="shopownerForm">
+		<form method="POST" action="/report"	id="shopownerForm">
 			<div class="form-group">
 				<label>your Name : </label>
 				<input class="form-control" type="text" name="name" id="name" required>
@@ -57,23 +57,27 @@
 			-->
 			<div class="form-group">
 				<label>Select District : </label>
-				<select id="district" class="form-control" required></select>
+				<select id="district" class="form-control" name="district" required></select>
 			</div>
 			<div class="form-group">	
 				<label>Select Panchayat / Muncipality : </label>
-				<select id="panchayat" class="form-control" required></select>
+				<select id="panchayath" class="form-control" name="panchayath" required></select>
 			</div>
 			<div class="form-group">
 				<label>Select locality : </label>
-				<select id="locality" class="form-control" ></select>
+				<select id="locality" class="form-control" name="locality" ></select>
 			</div>
 			<div class="form-group">	
 				<label>Items that are short in your area :</label> <br>
-				<input type="checkbox" name="milk" id="milk" value="milk"> milk
-				<input type="checkbox" name="groceries" id="groceries" value="groceries"> groceries
-				<input type="checkbox" name="veg" id="veg" value="vegetables"> vegetables
+				<input type="checkbox" name="items" id="milk" value="milk"> milk
+				<input type="checkbox" name="items" id="groceries" value="groceries"> groceries
+				<input type="checkbox" name="items" id="veg" value="vegetables"> vegetables
 				<!-- Add more items -->
 			</div>	
+			<div class="form-group">
+				<label>Comment / Description : </label>
+				<input class="form-control" type="text" name="description" id="description" required>
+			</div>
 			<div class="form-group">
 				<input type="checkbox" id="declaration" required>
 				<label for="declaration">
@@ -94,35 +98,5 @@
 
 	<div class="space-100"></div>
 	<div class="footer bg-dark"></div>
-
-	<!-- The core Firebase JS SDK is always required and must be listed first -->
-	<script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-app.js"></script>
-
-	<script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-firestore.js"></script>
-
-	<script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-auth.js"></script>
-
-	<!-- TODO: Add SDKs for Firebase products that you want to use
-	     https://firebase.google.com/docs/web/setup#available-libraries -->
-	<script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-analytics.js"></script>
-
-	<script>
-	  // Your web app's Firebase configuration
-	  var firebaseConfig = {
-	    apiKey: "AIzaSyAqQ7wEdYSqTcDDZT_UVtJbjRyxz-Z4zjQ",
-	    authDomain: "quacomo-13723.firebaseapp.com",
-	    databaseURL: "https://quacomo-13723.firebaseio.com",
-	    projectId: "quacomo-13723",
-	    storageBucket: "quacomo-13723.appspot.com",
-	    messagingSenderId: "979823509426",
-	    appId: "1:979823509426:web:0fcc6353f992a272072eab",
-	    measurementId: "G-57FEBN4NED"
-	  };
-	  // Initialize Firebase
-	  firebase.initializeApp(firebaseConfig);
-	  firebase.analytics();
-	</script>
-
-	<script type="text/javascript" src="../assets/js/shop.js"></script>
 </body>
 </html>

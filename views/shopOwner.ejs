@@ -29,74 +29,61 @@
 			</div>
         </div>
         
+
+        <% user.shops.forEach((shop)=>{ %>
+
+            <div class="card">
+                <div class="card-header bg-dark text-white">
+                <span class="font-weight-bold"> <%= shop.name %> </span> 
+                </div>
+                
+                <div class="card-body">
+                    <% if(shop.isOpen == true){ %>
+                        
+                        <div class="alert alert-success" role="alert">
+                        Your shop is marked as open
+
+                    <%} else { %>
+
+                        <div class="alert alert-danger" role="alert">
+                        Your shop is marked as closed
+
+                   <% }%>
+                     
+                    </div>
+    
+                    <div class="custom-control custom-switch">
+                        <input type="checkbox" name="toggle" class="custom-control-input" id="<%= shop._id %>" value="true"  <% if(shop.isOpen == true){ %>  checked <%}%> >
+                        <label class="custom-control-label" for="<%= shop._id %>">Open/closed</label>
+                        <br>
+                        <small class="text-danger">Toggle the switch to mark your shop closed or open</small>
+                    </div>
+                
+                    <ul class="list-group list-group-flush font-weight-light">
+                        <li class="list-group-item"></li>
+                        <li class="list-group-item ">Mark items that are available in your shop</li>
+
+                       <% shop.items.forEach((item)=>{ %>
+
+                        <li class="list-group-item"><input type="checkbox" name="items" id="<%= item %>" value="<%= item %>"> <label for="<%= item %>"><%= item %></li>
+
+                       <%  }) %>
+                        
+                        
+                      </ul>
+                </div>
+    
+            </div>
+            <div class="space-50"></div>
+
+            
+
+       <% }) %>
         <!-- cards start here -->
-        <div class="card">
-            <div class="card-header bg-dark text-white">
-            <span class="font-weight-bold"> Shop name </span> 
-            </div>
-            
-            <div class="card-body">
-                 <div class="alert alert-success" role="alert">
-                    Your shop is marked as open
-                </div>
-
-                <div class="custom-control custom-switch">
-                    <input type="checkbox" name="toggle" class="custom-control-input" id="customSwitch1" value="true">
-                    <label class="custom-control-label" for="customSwitch1">Open/closed</label>
-                    <br>
-                    <small class="text-danger">Toggle the switch to mark your shop closed or open</small>
-                </div>
-
-                <ul class="list-group list-group-flush font-weight-light">
-                    <li class="list-group-item"></li>
-                    <li class="list-group-item ">Mark items that are available in your shop</li>
-                    <li class="list-group-item"><input type="checkbox" name="items" id="milk" value="milk"> <label for="milk"> milk</li>
-                    <li class="list-group-item"><input type="checkbox" name="items" id="groceries" value="groceries"> <label for="groceries"> groceries</li>
-                    <li class="list-group-item"><input type="checkbox" name="items" id="veg" value="vegetables"> <label for="veg"> vegetables</li>
-                  </ul>
-            </div>
-
-        </div>
-        <div class="space-50"></div>
+        
         <!-- card ends -->
 
 
-        <!-- ========================================================= -->
-        <!-- just for demonstration // delete the below code on production -->
-        <!-- ========================================================= -->
-         <!-- cards start here -->
-         <div class="card">
-            <div class="card-header bg-dark text-white">
-            <span class="font-weight-bold"> Shop name </span> 
-            </div>
-            
-            <div class="card-body">
-                 <div class="alert alert-danger" role="alert">
-                    Your shop is marked as closed
-                </div>
-
-                <div class="custom-control custom-switch">
-                    <input type="checkbox" class="custom-control-input" id="customSwitch2">
-                    <label class="custom-control-label" for="customSwitch2">Open/closed</label>
-                    <br>
-                    <small class="text-danger">Toggle the switch to mark your shop closed or open</small>
-                </div>
-
-                <ul class="list-group list-group-flush font-weight-light">
-                    <li class="list-group-item"></li>
-                    <li class="list-group-item ">Mark items that are available in your shop</li>
-                    <li class="list-group-item"><input type="checkbox" name="milk" id="milk" value="milk" disabled>milk</label></li>
-                    <li class="list-group-item"><input type="checkbox" name="groceries" id="groceries" value="groceries" disabled> groceries</li>
-                    <li class="list-group-item"><input type="checkbox" name="veg" id="veg" value="vegetables" disabled> vegetables</li>
-                  </ul>
-            </div>
-
-        </div>
-        <div class="space-50"></div>
-        <!-- card ends -->
-
-        <!-- ========================================================= -->
-        <!-- ========================================================= -->
 
 
 
