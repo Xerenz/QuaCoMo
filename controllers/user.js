@@ -20,7 +20,7 @@ module.exports = function (app) {
             }
             req.logIn(user, err => {
                 if (err) { return next(err); }
-                let redirectTo = req.session.redirectTo ? req.session.redirectTo : '/questions';
+                let redirectTo = req.session.redirectTo ? req.session.redirectTo : '/shops'; //TODO
                 delete req.session.redirectTo;
                 req.flash("success", "Good to see you again, " + user.username);
                 res.redirect(redirectTo);
@@ -41,32 +41,41 @@ module.exports = function (app) {
     });
 
 
-    app.post("/register", urlencodedParser, (req, res) => {
+    app.post("/register", urlencodedParser, (req, res, next) => {
+        console.log('in the route')
+        console.log(req.body);
+
         let newUser = new User({
             name: req.body.name,
+            username: req.body.email,
             email: req.body.email,
             aadhar: req.body.aadhar,
             phone: req.body.phone,
         });
 
-        User.register(newUser, req.body.password, (err, user) => {
+        User.register(newUser, req.body.pass, (err, user) => {
             if (err) {
                 if (err.name === 'MongoError' && err.code === 11000) {
                     // Duplicate email
-                    req.flash("error", "That email has already been registered.");
+                    console.log("error", "That email has already been registered.");
                     return res.redirect("/register");
                 }
                 // Some other error
                 req.flash("error", "Something went wrong...");
+                console.log("error", err);
                 return res.redirect("/register");
             }
-
-            passport.authenticate("local")(req, res, () => {
-                req.flash("success", "Welcome to QuaCoMo " + user.username);
-                console.log("New user created: " + user.username);
-                res.redirect("/shops");
-            });
+            console.log('status: ', req.isAuthenticated());
+            next();
+            // passport.authenticate("local")(req, res, () => {
+            //     req.flash("success", "Welcome to QuaCoMo " + user.username);
+            //     console.log("New user created: " + user.username);
+            //     res.redirect("/shops");
+            // });
         });
-    });
+    }, passport.authenticate('local', {
+        successRedirect: '/account/profile',
+        failureRedirect: '/login'
+    }));
 
 }
