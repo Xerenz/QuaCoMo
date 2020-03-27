@@ -7,6 +7,7 @@ const LocalStrategy = require('passport-local');
 
 const User = require("./models/user")
 const userController = require("./controllers/user");
+const adminController = require("./controllers/admin");
 const shopController = require("./controllers/shop");
 
 
@@ -52,6 +53,7 @@ app.get("/", function (req, res) {
 });
 
 userController(app);
+adminController(app);
 shopController(app);
 
 const PORT = process.env.PORT || 8000;
