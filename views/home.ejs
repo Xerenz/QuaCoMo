@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Register</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<%- include("partials/libraries") %> 
+	<script src="assets/js/select.js"></script>
+
+</head>
+
+
+<body>
+ 
+    <!-- Here goes navbar -->
+	<nav class="navbar  navbar-dark bg-dark fixed-top">
+		<a class="navbar-brand" href="#">QuaCoMo</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+		  <span class="navbar-toggler-icon"></span>
+		</button>
+	  
+		<div class="collapse navbar-collapse " id="navbarSupportedContent">
+		  <ul class="navbar-nav mr-auto">
+			<li class="nav-item ">
+			  <a class="nav-link" href="#">Home</a>
+			</li>
+			<li class="nav-item">
+			  <a class="nav-link" href="#">Help-line</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="/login">Shop Owner Login</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="/register">Shop Owner Register</a>
+			</li>
+			
+		  </ul>
+		  
+		</div>
+		
+	  </nav>
+
+	  <!-- Header starts here -->
+	<div class="space-100"></div>
+	
+	<div class="container">
+		<span>Are you a shop owner? </span>
+		<a href="/login">Log in</a>
+		<br><br>
+		<div class="jumbotron jumbotron-fluid">
+			<div class="container">
+			  <h1 class="font-weight-lighter">Find Stores near me</h1>
+			  <p class="lead">Search for the shops that are open now </p>
+			  <br><br>
+
+
+			<form method="POST" action="/result"	id="shopownerForm">
+				
+				<div class="form-group">
+					<label>Select District : </label>
+					<select id="district" class="form-control"></select>
+				</div>
+				<div class="form-group">	
+					<label>Select Panchayat / Muncipality : </label>
+					<select id="panchayat" class="form-control"></select>
+				</div>
+				<div class="form-group">
+					<label>Select locality : </label>
+					<select id="locality" class="form-control"></select>
+				</div>
+				<div class="form-group">	
+					<label>Items I want : </label>
+					<input type="checkbox" name="milk" id="milk" value="milk"> <label for="milk">milk</label>
+					<input type="checkbox" name="groceries" id="groceries" value="groceries"> <label for="groceries">groceries</label>
+					<input type="checkbox" name="veg" id="veg" value="vegetables"> <label for="veg">vegetables</label>
+					<!-- Add more items -->
+				</div>	
+				<div>
+					<button type="submit" id="submit" class="btn btn-dark">Search</button>
+				</div>
+			</form>	
+
+			<br><br><br>
+			<h1 class="font-weight-lighter">Report Shortage</h1>
+			<p class="lead">In case of shortage of items? Report here.  </p>
+			<button class="btn btn-danger">Report to government</button>
+			</div>
+		</div>
+	</div>
+
+	
+
+</body>
+
+</html>
