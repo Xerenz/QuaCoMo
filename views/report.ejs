@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Shop Registration</title>
+	<title>Report shortage</title>
 	<meta charset="utf-8">
 	<meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -23,14 +23,14 @@
 	<div class="container">
 		<nav aria-label="breadcrumb">
 			<ol class="breadcrumb">
-			  <li class="breadcrumb-item"><a href="/shops">ShopOwnerDash</a></li>
-			  <li class="breadcrumb-item active" aria-current="page">addShop</li>
+			  <li class="breadcrumb-item"><a href="/home">Home</a></li>
+			  <li class="breadcrumb-item active" aria-current="page">Report</li>
 			</ol>
 		</nav>
 		<div class="jumbotron jumbotron-fluid">
 			<div class="container">
-			  <h1 class="font-weight-lighter">Shop Registation</h1>
-			  <p class="lead">Enter details of your shop</p>
+			  <h1 class="font-weight-lighter">Report Shortage</h1>
+			  <p class="lead">In case of shortage of necessary items in your area , report here.</p>
 			</div>
 		</div>
 	</div>
@@ -41,8 +41,8 @@
 
 		<form method="POST" action="/shop/addShop"	id="shopownerForm">
 			<div class="form-group">
-				<label>Shop Name : </label>
-				<input class="form-control" type="text" name="shop" id="shop" required>
+				<label>your Name : </label>
+				<input class="form-control" type="text" name="name" id="name" required>
 			</div>	
 			<div class="form-group">
 				<label>Phone Number : </label>
@@ -68,18 +68,22 @@
 				<select id="locality" class="form-control"></select>
 			</div>
 			<div class="form-group">	
-				<label>Landmark</label>
-				<input class="form-control" type="text" name="landmark" id="landmark" >
-			</div>
-			<div class="form-group">	
-				<label>Items Available : </label>
+				<label>Items that are short in your area :</label> <br>
 				<input type="checkbox" name="milk" id="milk" value="milk"> milk
 				<input type="checkbox" name="groceries" id="groceries" value="groceries"> groceries
 				<input type="checkbox" name="veg" id="veg" value="vegetables"> vegetables
 				<!-- Add more items -->
 			</div>	
+			<div class="form-group">
+				<input type="checkbox" id="declaration" required>
+				<label for="declaration">
+					<small>I hereby declare that the details furnished above are true and correct to the best of my knowledge.</small>
+				</label>
+	
+			</div>
+			
 			<div>
-				<button type="submit" id="submit" class="btn btn-dark">Submit</button>
+				<button type="submit" id="submit" class="btn btn-dark">Report shortage</button>
 			</div>
 		</form>	
 	</div>
