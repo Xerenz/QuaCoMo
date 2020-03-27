@@ -5,11 +5,15 @@ var urlencodedParser = bodyParser.urlencoded({ extended: false });
 
 module.exports = function(app) {
 
-    app.get("/addShop", isLoggedIn, function(req, res) {
+    app.get("/shops", function(req, res) {
+        res.render("shopOwner");
+    });
+
+    app.get("/shops/new", function(req, res) {
         res.render("addShop");
     });
 
-    app.post("/addShop", function(req, res) {
+    app.post("/shops/new", function(req, res) {
         res.sendStatus(200);
     });
 
