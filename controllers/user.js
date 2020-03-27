@@ -20,7 +20,7 @@ module.exports = function (app) {
             }
             req.logIn(user, err => {
                 if (err) { return next(err); }
-                let redirectTo = req.session.redirectTo ? req.session.redirectTo : '/questions';
+                let redirectTo = req.session.redirectTo ? req.session.redirectTo : '/addShop'; //TODO
                 delete req.session.redirectTo;
                 req.flash("success", "Good to see you again, " + user.username);
                 res.redirect(redirectTo);
@@ -41,10 +41,14 @@ module.exports = function (app) {
     });
 
 
-    app.post("/register", urlencodedParser, (req, res) => {
+    app.post("/register", urlencodedParser, (req, res, next) => {
+        console.log('in the route')
+        console.log(req.body);
+
         let newUser = new User({
             name: req.body.name,
-            email: req.body.email,
+            username: req.body.username,
+            email: req.body.username,
             aadhar: req.body.aadhar,
             phone: req.body.phone,
         });
@@ -53,19 +57,34 @@ module.exports = function (app) {
             if (err) {
                 if (err.name === 'MongoError' && err.code === 11000) {
                     // Duplicate email
-                    req.flash("error", "That email has already been registered.");
+                    console.log("error", "That email has already been registered.");
                     return res.redirect("/register");
                 }
                 // Some other error
                 req.flash("error", "Something went wrong...");
+                console.log("error", err);
                 return res.redirect("/register");
             }
+            console.log('status: ', req.isAuthenticated());
+            passport.authenticate("local", function (err, user, info) {
+                console.log(err, user, info);
+                if (err) {
+                    console.log(err);
+                    return next(err);
+                }
+                if (!user) return res.redirect('/login');
 
-            passport.authenticate("local")(req, res, () => {
-                req.flash("success", "Welcome to QuaCoMo " + user.username);
-                console.log("New user created: " + user.username);
-                res.redirect("/shops");
-            });
+                req.logIn(user, function (err) {
+                    if (err) return next(err);
+                    return res.redirect("/addShop");
+                });
+
+            })(req, res, next);
+            // passport.authenticate("local")(req, res, () => {
+            //     req.flash("success", "Welcome to QuaCoMo " + user.username);
+            //     console.log("New user created: " + user.username);
+            //     res.redirect("/shops");
+            // });
         });
     });
 
