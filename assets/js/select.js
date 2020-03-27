@@ -31,12 +31,12 @@ $(document).ready(function() {
 	.change(function() {
 		var dist = $("#district").val();
 
-		$("#panchayat").empty();
+		$("#panchayath").empty();
 
-		$("#panchayat").append("--Select--");
+		$("#panchayath").append("--Select--");
 
 		districtMap[dist].forEach(x => {
-			$("#panchayat").append(new Option(x.toUpperCase(), x.toUpperCase()));
+			$("#panchayath").append(new Option(x.toUpperCase(), x.toUpperCase()));
 		});
 	});
 });

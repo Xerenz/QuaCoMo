@@ -58,14 +58,14 @@
                         <br>
                         <small class="text-danger">Toggle the switch to mark your shop closed or open</small>
                     </div>
-    
+                
                     <ul class="list-group list-group-flush font-weight-light">
                         <li class="list-group-item"></li>
                         <li class="list-group-item ">Mark items that are available in your shop</li>
 
                        <% shop.items.forEach((item)=>{ %>
 
-                        <li class="list-group-item"><input type="checkbox" name="items" id="<%= item %>" value="<%= item %>"> <label for="<%= item %>"> milk</li>
+                        <li class="list-group-item"><input type="checkbox" name="items" id="<%= item %>" value="<%= item %>"> <label for="<%= item %>"><%= item %></li>
 
                        <%  }) %>
                         
