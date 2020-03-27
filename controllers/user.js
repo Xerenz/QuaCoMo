@@ -20,7 +20,7 @@ module.exports = function (app) {
             }
             req.logIn(user, err => {
                 if (err) { return next(err); }
-                let redirectTo = req.session.redirectTo ? req.session.redirectTo : '/addShop'; //TODO
+                let redirectTo = req.session.redirectTo ? req.session.redirectTo : '/shops/new'; //TODO
                 delete req.session.redirectTo;
                 req.flash("success", "Good to see you again, " + user.username);
                 res.redirect(redirectTo);
@@ -76,15 +76,10 @@ module.exports = function (app) {
 
                 req.logIn(user, function (err) {
                     if (err) return next(err);
-                    return res.redirect("/addShop");
+                    return res.redirect("/shops/new");
                 });
 
             })(req, res, next);
-            // passport.authenticate("local")(req, res, () => {
-            //     req.flash("success", "Welcome to QuaCoMo " + user.username);
-            //     console.log("New user created: " + user.username);
-            //     res.redirect("/shops");
-            // });
         });
     });
 
