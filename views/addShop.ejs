@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Shop Registration</title>
+	<meta charset="utf-8">
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<script
+			  src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+			  integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8="
+			  crossorigin="anonymous"></script>
+
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+	<script type="text/javascript" src="../assets/js/select.js"></script>
+	<!-- edited by jithin k satheesh -->
+	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+	<link rel="stylesheet" type="text/css" href="../assets/css/shop.css">
+	<link rel="stylesheet" type="text/css" href="../assets/css/common.css">
+
+	<!-- (^_^) -->
+
+</head>
+<body>
+	
+	<!-- Here goes navbar -->
+	<nav class="navbar  navbar-dark bg-dark fixed-top">
+		<a class="navbar-brand" href="#">QuaCoMo</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+		  <span class="navbar-toggler-icon"></span>
+		</button>
+	  
+		<div class="collapse navbar-collapse " id="navbarSupportedContent">
+		  <ul class="navbar-nav mr-auto">
+			<li class="nav-item active">
+			  <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+			</li>
+			<li class="nav-item">
+			  <a class="nav-link" href="#">Help</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="#" id="logout">Logout</a>
+			  </li>
+		  </ul>
+		  
+		</div>
+		
+	  </nav>
+
+	  <!-- Header starts here -->
+	<div class="space-100"></div>
+	<div class="container">
+		<nav aria-label="breadcrumb">
+			<ol class="breadcrumb">
+			  <li class="breadcrumb-item"><a href="shopOwner.html">ShopOwnerDash</a></li>
+			  <li class="breadcrumb-item active" aria-current="page">addShop</li>
+			</ol>
+		</nav>
+		<div class="jumbotron jumbotron-fluid">
+			<div class="container">
+			  <h1 class="font-weight-lighter">Shop Registation</h1>
+			  <p class="lead">Enter details of your shop</p>
+			</div>
+		</div>
+	</div>
+
+	<!--  form starts here -->
+
+	<div class="container">
+
+		<form method="POST" action="/shop/addShop"	id="shopownerForm">
+			<div class="form-group">
+				<label>Shop Name : </label>
+				<input class="form-control" type="text" name="shop" id="shop" required>
+			</div>	
+			<div class="form-group">
+				<label>Phone Number : </label>
+				<input class="form-control" type="text" name="phone" id="phone" required>
+				<p id="phoneValidation"></p>
+			</div>
+			<!--
+			<div>
+				<label>Select State : </label>
+				<select id="state"></select>
+			</div>
+			-->
+			<div class="form-group">
+				<label>Select District : </label>
+				<select id="district" class="form-control"></select>
+			</div>
+			<div class="form-group">	
+				<label>Select Panchayat / Muncipality : </label>
+				<select id="panchayat" class="form-control"></select>
+			</div>
+			<div class="form-group">
+				<label>Select locality : </label>
+				<select id="locality" class="form-control"></select>
+			</div>
+			<div class="form-group">	
+				<label>Landmark</label>
+				<input class="form-control" type="text" name="landmark" id="landmark" >
+			</div>
+			<div class="form-group">	
+				<label>Items Available : </label>
+				<input type="checkbox" name="milk" id="milk" value="milk"> milk
+				<input type="checkbox" name="groceries" id="groceries" value="groceries"> groceries
+				<input type="checkbox" name="veg" id="veg" value="vegetables"> vegetables
+				<!-- Add more items -->
+			</div>	
+			<div>
+				<button type="submit" id="submit" class="btn btn-dark">Submit</button>
+			</div>
+		</form>	
+	</div>
+
+
+
+	<!-- Here is the footer -->
+
+	<div class="space-100"></div>
+	<div class="footer bg-dark"></div>
+
+	<!-- The core Firebase JS SDK is always required and must be listed first -->
+	<script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-app.js"></script>
+
+	<script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-firestore.js"></script>
+
+	<script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-auth.js"></script>
+
+	<!-- TODO: Add SDKs for Firebase products that you want to use
+	     https://firebase.google.com/docs/web/setup#available-libraries -->
+	<script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-analytics.js"></script>
+
+	<script>
+	  // Your web app's Firebase configuration
+	  var firebaseConfig = {
+	    apiKey: "AIzaSyAqQ7wEdYSqTcDDZT_UVtJbjRyxz-Z4zjQ",
+	    authDomain: "quacomo-13723.firebaseapp.com",
+	    databaseURL: "https://quacomo-13723.firebaseio.com",
+	    projectId: "quacomo-13723",
+	    storageBucket: "quacomo-13723.appspot.com",
+	    messagingSenderId: "979823509426",
+	    appId: "1:979823509426:web:0fcc6353f992a272072eab",
+	    measurementId: "G-57FEBN4NED"
+	  };
+	  // Initialize Firebase
+	  firebase.initializeApp(firebaseConfig);
+	  firebase.analytics();
+	</script>
+
+	<script type="text/javascript" src="../assets/js/shop.js"></script>
+</body>
+</html>

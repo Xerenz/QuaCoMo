@@ -7,6 +7,7 @@ const LocalStrategy = require('passport-local');
 
 const User = require("./models/user")
 const userController = require("./controllers/user");
+const shopController = require("./controllers/shop");
 
 
 mongoose.connect("mongodb://localhost/quacomo")
@@ -51,6 +52,7 @@ app.get("/", function (req, res) {
 });
 
 userController(app);
+shopController(app);
 
 const PORT = process.env.PORT || 8000;
 
