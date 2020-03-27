@@ -26,7 +26,7 @@ app.use("/assets/js", express.static(__dirname + "/assets/js"));
 
 //passport configuration
 app.use(session({
-	secret: process.env.SESSIONSECRET || "node_app_chatbot_secret",
+	secret: process.env.SESSIONSECRET || "node_app_quacomo_secret",
 	resave: false,
 	saveUninitialized: false
 }));

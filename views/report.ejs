@@ -39,7 +39,7 @@
 
 	<div class="container">
 
-		<form method="POST" action="/shop/addShop"	id="shopownerForm">
+		<form method="POST" action="/report"	id="shopownerForm">
 			<div class="form-group">
 				<label>your Name : </label>
 				<input class="form-control" type="text" name="name" id="name" required>
@@ -61,7 +61,7 @@
 			</div>
 			<div class="form-group">	
 				<label>Select Panchayat / Muncipality : </label>
-				<select id="panchayat" class="form-control" name="panchayath" required></select>
+				<select id="panchayath" class="form-control" name="panchayath" required></select>
 			</div>
 			<div class="form-group">
 				<label>Select locality : </label>
@@ -76,8 +76,7 @@
 			</div>	
 			<div class="form-group">
 				<label>Comment / Description : </label>
-				<input class="form-control" type="text" name="description" id="description" pattern="[0-9]{10}" required>
-				<p id="phoneValidation"></p>
+				<input class="form-control" type="text" name="description" id="description" required>
 			</div>
 			<div class="form-group">
 				<input type="checkbox" id="declaration" required>

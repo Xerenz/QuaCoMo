@@ -7,7 +7,7 @@ const RequestSchema = new Schema(
         items : [String],
         description : String,
         locality : String,
-        punchayath : String,
+        panchayath : String,
         district : String,
         state : String,
 

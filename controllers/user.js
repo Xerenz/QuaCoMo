@@ -93,6 +93,7 @@ module.exports = function (app) {
     })
 
     app.post("/report", urlencodedParser, (req, res) => {
+
         let report = new Report({
             name : req.body.name,
             phone : req.body.phone,
@@ -100,7 +101,7 @@ module.exports = function (app) {
             panchayath : req.body.panchayath,
             locality : req.body.locality,
             state : "Kerala",
-            commodity : req.body.items,
+            items : req.body.items,
             description : req.body.description,
             ip_address : req.connection.remoteAddress,
             timestamp : Date()
