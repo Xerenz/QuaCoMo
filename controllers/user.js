@@ -9,6 +9,7 @@ var urlencodedParser = bodyParser.urlencoded({ extended: false })
 module.exports = function (app) {
 
     app.get("/login", function (req, res) {
+        req.session.redirectTo = '/login';
         res.render("login");
     });
 
@@ -40,6 +41,7 @@ module.exports = function (app) {
 
     app.get("/register", function (req, res) {
         // i18n.setLocale('en')
+        req.session.redirectTo = '/register';
         console.log(res.__('name'));
         res.render("register");
     });
