@@ -29,7 +29,7 @@
 	"report_gov": "Report to the Government",
 	"register": "register",
 	"or": "or",
-	"loc": "Get Shop Location",
+	"loc": "Mark Shop Location",
 	"s_closed": "Your shop is marked as closed.",
 	"s_open": "Your shop is marked as open",
 	"s_closed_mark": "Click button to mark your shop closed",
@@ -47,9 +47,8 @@
 	"edit": "edit",
 	"delete": "delete",
 	"select_location": "Select Location",
-	"edit": "edit",
-	"delete": "delete",
 	"ADD_SHOP": "ADD SHOP",
 	"edit_shop_title": "Edit Shop",
-	"edit_shop_desc": "Edit the details of your shop."
+	"edit_shop_desc": "Edit the details of your shop.",
+	"loc_mark_verbose": "Please mark your locality on the map below for more accuracy"
 }
