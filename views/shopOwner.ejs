@@ -43,16 +43,16 @@
 
                     <% if(shop.isOpen == true){ %>                     
                         <div class="alert alert-success" role="alert">
-                            <%=__('your shop is marked as ')%>  
-                            <a href="/shops/<%= shop._id %>/status"><button type="button" class="btn btn-success">Opened</button></a>
+                            <%=__('your_store')%>  
+                            <a href="/shops/<%= shop._id %>/status"><button type="button" class="btn btn-success"><%=__('open')%></button></a>
          
                     <%} else { %>
                         <div class="alert alert-danger" role="alert">
-                            <%=__('your shop is marked as ')%>
-                            <a href="/shops/<%= shop._id %>/status"><button type="button" class="btn btn-danger"><i class="far fa-check-circle"></i> Closed</button></a>
+                            <%=__('your_store')%>
+                            <a href="/shops/<%= shop._id %>/status"><button type="button" class="btn btn-danger"><%=__('closed')%></button></a>
                             
                     <% }%>
-                    <a href="/shops/<%= shop._id %>/status"><small class="text-info"><%=__('click to change')%></small></a>
+                    <a href="/shops/<%= shop._id %>/status"><small class="text-info"><%=__('click_to_change')%></small></a>
                     </div>
 
                    
@@ -61,7 +61,7 @@
                 
                     <ul class="list-group list-group-flush font-weight-light">
                         <li class="list-group-item"></li>
-                        <li class="list-group-item "><%=__('Items Available in your shop')%></li>
+                        <li class="list-group-item "><%=__('item_avl')%></li>
 
                        <% shop.items.forEach((item)=>{ %>
 
