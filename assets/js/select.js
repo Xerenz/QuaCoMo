@@ -48,7 +48,7 @@ $(document).ready(function () {
 function map(pincode) {
 
     latlon = pinlookup[pincode]
-    var mymap = L.map('mapid').setView([latlon[0], latlon[1]], 13);
+    var mymap = L.map('mapid').setView([latlon[0], latlon[1]], 14);
 
     L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
         attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
@@ -64,7 +64,7 @@ function map(pincode) {
     function onMapClick(e) {
         popup
             .setLatLng(e.latlng)
-            .setContent("Select here")
+            .setContent("This location selected. (ഈ സ്ഥലം തിരഞ്ഞെടുത്തിരിക്കുന്നു)")
             .openOn(mymap);
 		var cords = e.latlng.lat + ',' + e.latlng.lng;
 		$("#loc").val(cords);

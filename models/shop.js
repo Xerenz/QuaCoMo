@@ -9,7 +9,7 @@ let ShopSchema = new Schema({
     locality: String,
     pincode: String,
     phone: String,
-    landmark: String,
+    address: String,
     isOpen: Boolean,
     items: [String],
     owner: { type: Schema.Types.ObjectId, ref: "User" },

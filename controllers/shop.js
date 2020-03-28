@@ -31,11 +31,13 @@ module.exports = function (app) {
         function (req, res) {
             let shop = new Shop({
                 name: req.body.name,
-                state: req.body.state,
-                district: req.body.district,
+                state: "Kerala",
+                district: "Thiruvananthapuram",
                 locality: req.body.locality,
                 phone: req.body.phone,
-                landmark: req.body.landmark,
+                pincode: req.body.pincode,
+                location: req.body.location,
+                address: req.body.address,
                 isOpen: true,
                 items: req.body.items,
                 owner: req.user.id
