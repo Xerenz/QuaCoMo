@@ -46,46 +46,46 @@
 	<div class="space-100"></div>
 	
 	<div class="container">
-		<span>Are you a shop owner? </span>
-		<a href="/login">Log in</a> or <a href="/register">register</a> here
+		<span><%=__('is_shop_owner')%> </span>
+		<a href="/login"><%=__('login')%></a> <%=__('or')%> <a href="/register"><%=__('reg')%></a>.
 		<br><br>
 		<div class="jumbotron jumbotron-fluid">
 			<div class="container">
-			  <h1 class="font-weight-lighter">Find Stores near me</h1>
-			  <p class="lead">Search for the shops that are open now </p>
+			  <h1 class="font-weight-lighter"><%=__('s_near_me')%></h1>
+			  <p class="lead"><%=__('s_desc')%> </p>
 			  <br><br>
 
 
 			<form method="POST" action="/result"	id="shopownerForm">
 				
 				<div class="form-group">
-					<label>Select District : </label>
+					<label><%=__('dist_sel')%> : </label>
 					<select id="district" class="form-control" required></select>
 				</div>
-				<div class="form-group">	
-					<label>Select Panchayat / Muncipality : </label>
-					<select id="panchayat" class="form-control" required></select>
+				<div class="form-group">
+					<label><%=__('loc_sel')%> : </label>
+					<select id="locality" class="form-control" required></select>
 				</div>
 				<div class="form-group">
-					<label>Select locality : </label>
-					<select id="locality" class="form-control"></select>
+					<label><%=__('pin_sel')%> : </label>
+					<input id="pincode" name="pincode" type="number" class="form-control" required></select>
 				</div>
 				<div class="form-group">	
-					<label>Items I want : </label>
+					<label><%=__('item_sel')%> : </label>
 					<input type="checkbox" name="milk" id="milk" value="milk" checked> <label for="milk">milk</label>
 					<input type="checkbox" name="groceries" id="groceries" value="groceries" checked> <label for="groceries">groceries</label>
 					<input type="checkbox" name="veg" id="veg" value="vegetables" checked> <label for="veg">vegetables</label>
 					<!-- Add more items -->
 				</div>	
 				<div>
-					<button type="submit" id="submit" class="btn btn-dark">Search</button>
+					<button type="submit" id="submit" class="btn btn-dark"><%=__('search')%></button>
 				</div>
 			</form>	
 
 			<br><br><br>
-			<h1 class="font-weight-lighter">Report Shortage</h1>
-			<p class="lead">In case of shortage of items? Report here.  </p>
-			<a href="/report"><button class="btn btn-danger">Report to government</button></a>
+			<h1 class="font-weight-lighter"><%=__('report_head')%></h1>
+			<p class="lead"><%=__('report_desc')%>  </p>
+			<a href="/report"><button class="btn btn-danger"><%=__('report_gov')%></button></a>
 			</div>
 		</div>
 	</div>

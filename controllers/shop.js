@@ -2,6 +2,7 @@ const Shop = require("../models/shop");
 const User = require("../models/user");
 const bodyParser = require("body-parser");
 const middleware = require("../utils/middleware");
+const data = require("../utils/data");
 
 var urlencodedParser = bodyParser.urlencoded({ extended: false });
 var isLoggedIn = middleware.isLoggedIn;
@@ -17,7 +18,11 @@ module.exports = function (app) {
     });
 
     app.get("/shops/new", isLoggedIn, function (req, res) {
-        res.render("addShop");
+        var items = [];
+        data.commodities.forEach(function(item) {
+            items.push([item.split(' - ')[0], item])
+        })
+        res.render("addShop", {items: items});
     });
 
     app.post("/shops/new",

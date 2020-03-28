@@ -29,8 +29,8 @@
 		</nav>
 		<div class="jumbotron jumbotron-fluid">
 			<div class="container">
-			  <h1 class="font-weight-lighter">Shop Registation</h1>
-			  <p class="lead">Enter details of your shop</p>
+			  <h1 class="font-weight-lighter"><%=__('s_reg_title')%></h1>
+			  <p class="lead"><%=__('s_reg_desc')%></p>
 			</div>
 		</div>
 	</div>
@@ -41,11 +41,11 @@
 
 		<form method="POST" action="/shops/new"	id="shopownerForm">
 			<div class="form-group">
-				<label>Shop Name : </label>
+				<label><%=__('s_name')%> : </label>
 				<input class="form-control" type="text" name="name" id="shop" required>
 			</div>	
 			<div class="form-group">
-				<label>Phone Number : </label>
+				<label><%=__('phone')%> : </label>
 				<input class="form-control" type="text" name="phone" id="phone" required>
 				<p id="phoneValidation"></p>
 			</div>
@@ -56,30 +56,34 @@
 			</div>
 			-->
 			<div class="form-group">
-				<label>Select District : </label>
+				<label><%=__('dist_sel')%> : </label>
 				<select id="district" class="form-control" name="district"></select>
 			</div>
-			<div class="form-group">	
-				<label>Select Panchayat / Muncipality : </label>
-				<select id="panchayath" class="form-control" name="panchayath"></select>
+			<div class="form-group">
+				<label><%=__('loc_sel')%> : </label>
+				<select id="locality" class="form-control" name="locality"></select>
 			</div>
 			<div class="form-group">
-				<label>Select locality : </label>
-				<select id="locality" class="form-control"></select>
+				<label><%=__('pin_sel')%> : </label>
+				<input class="form-control" type="text" name="pincode" id="pincode" >
 			</div>
 			<div class="form-group">	
-				<label>Landmark</label>
-				<input class="form-control" type="text" name="landmark" id="landmark" >
+				<label><%=__('address')%> :</label>
+				<input class="form-control" type="text" name="address" id="address" >
 			</div>
 			<div class="form-group">	
-				<label>Items Available : </label>
+				<label><%=__('item_avl')%> : </label>
+				<% items.forEach(function(item) { %>
+					<input type="checkbox" name="items" id="<%= item[0] %>" value="<%= item[0] %>"> <%= item[1] %>
+				<% }); %>
+
 				<input type="checkbox" name="items" id="milk" value="milk"> milk
 				<input type="checkbox" name="items" id="groceries" value="groceries"> groceries
 				<input type="checkbox" name="items" id="veg" value="vegetables"> vegetables
 				<!-- Add more items -->
 			</div>	
 			<div>
-				<button type="submit" id="submit" class="btn btn-dark">Submit</button>
+				<button type="submit" id="submit" class="btn btn-dark"><%=__('submit')%></button>
 			</div>
 		</form>	
 	</div>
