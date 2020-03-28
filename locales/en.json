@@ -45,5 +45,9 @@
 	"reset_mail_info": "A password reset mail will be sent to your registered email address. If you still face any problems. Contact Us : ",
 	"brand": "Sahayahastham",
 	"edit": "edit",
-	"delete": "delete"
+	"delete": "delete",
+	"select_location": "Select Location",
+	"edit": "edit",
+	"delete": "delete",
+	"ADD_SHOP" : "ADD SHOP"
 }

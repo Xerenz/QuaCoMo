@@ -19,7 +19,9 @@ middlewareObj.hasAdminPrivelages = function (req, res, next) {
 };
 
 middlewareObj.checkLang = function (req, res, next) {
-  res.setLocale(i18n.getLocale());
+  var lang = 'ml';
+  if(req.cookies.lang) { lang = req.cookies.lang };
+  res.setLocale(lang);
   next();
 };
 
