@@ -41,12 +41,12 @@
                     <% if(shop.isOpen == true){ %>
                         
                         <div class="alert alert-success" role="alert">
-                        Your shop is marked as open
+                            <%=__('s_open')%>
 
                     <%} else { %>
 
                         <div class="alert alert-danger" role="alert">
-                        Your shop is marked as closed
+                            <%=__('s_closed')%>
 
                    <% }%>
                      
@@ -56,18 +56,18 @@
                         <% if (shop.isOpen == true) { %>
                             <a href="/shop/<%= shop._id %>/status"><button type="button" class="btn btn-danger">Close Shop</button></a>
                             <br>
-                            <small class="text-danger">Click button to mark your shop closed.</small>
+                            <small class="text-danger"><%=__('s_closed_mark')%></small>
                         <% } else { %>
                             <a href="/shop/<%= shop._id %>/status"><button type="button" class="btn btn-success"><i class="far fa-check-circle"></i> Open Shop</button></a>
                             <br>
-                            <small class="text-danger">Click button to mark your shop open</small>
+                            <small class="text-danger"><%=__('s_open_mark')%></small>
                         <% } %>
                         <br>
                     </div>
                 
                     <ul class="list-group list-group-flush font-weight-light">
                         <li class="list-group-item"></li>
-                        <li class="list-group-item ">Mark items that are available in your shop</li>
+                        <li class="list-group-item "><%=__('mark_avl_items')%></li>
 
                        <% shop.items.forEach((item)=>{ %>
 
@@ -80,8 +80,8 @@
 
                       <br>
                       <div>
-                        <a href="/shops/<%=shop._id%>/edit"><button class="btn btn-dark">Edit</button></a>
-                        <a href="/shops/<%=shop._id%>/delete"><button class="btn btn-danger">Delete</button></a>
+                        <a href="/shops/<%=shop._id%>/edit"><button class="btn btn-dark"><%=__('edit')%></button></a>
+                        <a href="/shops/<%=shop._id%>/delete"><button class="btn btn-danger"><%=__('delete')%></button></a>
                       </div>
                 </div>
     

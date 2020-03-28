@@ -28,5 +28,12 @@
 	"report_desc": "ഇനങ്ങളുടെ കുറവ് ഉണ്ടെങ്കില്‍ റിപ്പോര്‍ട്ട്‌ ചെയ്യുക",
 	"report_gov": "സര്‍ക്കാറിന് റിപ്പോര്‍ട്ട്‌ നല്‍കുക",
 	"or": "അല്ലെങ്കിൽ",
-	"loc": "കട സ്ഥിതി ചെയ്യുന്ന സ്ഥലം കണ്ടെത്തുക"
+	"loc": "കട സ്ഥിതി ചെയ്യുന്ന സ്ഥലം കണ്ടെത്തുക",
+	"s_closed": "Your shop is marked as closed.",
+	"s_open": "Your shop is marked as open",
+	"s_closed_mark": "Click button to mark your shop closed",
+	"s_open_mark": "Click button to mark your shop open",
+	"mark_avl_items": "Mark the items available in your shop.",
+	"edit": "Edit",
+	"delete": "Delete"
 }
