@@ -149,8 +149,8 @@ module.exports = function (app) {
             User.findOne({ email: req.body.email }, function(err, user) {
                 if (err) console.log("second was the error");
               if (!user) {
-                req.flash('error', 'No account with that email address exists.');
-                return res.redirect('/forgot');
+                return res.render('forgot', { message : 'No account with that email address exists.'});
+                // return res.redirect('/forgot');
               }
               console.log(token);
               user.resetPasswordToken = token;
@@ -171,7 +171,7 @@ module.exports = function (app) {
             });
             var mailOptions = {
               to: user.email,
-              from: 'quacomo.mail@gmail.com',
+              from: '<Sahayahastham> quacomo.mail@gmail.com',
               subject: 'Password Reset',
               text: 'You are receiving this because you have requested the reset of the password for your account.\n\n' +
                 'Please click on the following link, or paste this into your browser to complete the process:\n\n' +
@@ -190,18 +190,22 @@ module.exports = function (app) {
             console.log(err);
             return next(err);
           }
-          res.redirect('/forgot');
+          res.render('forgot', {message : "A password reset link has been sent. Please check your mail"});
         });
     });
       
     app.get('/reset/:token', function(req, res) {
         User.findOne({ resetPasswordToken: req.params.token, resetPasswordExpires: { $gt: Date.now() } }, function(err, user) {
+          if (err) {
+            return console.log(err);
+          }
             if (!user) {
                 console.log('error', 'Password reset link is invalid or has expired.');
-                res.render('message', { message : 'Password reset link is invalid or has expired.'});
+                res.render('reset', {token : req.params.token ,message : 'Password reset link is invalid or has expired.'});
             }
             else {
-                res.render('reset', {token: req.params.token});
+              console.log("clean chit");
+                res.render('reset', {token: req.params.token, message : false});
             }
         });
     });
@@ -213,9 +217,10 @@ module.exports = function (app) {
           function(done) {
             User.findOne({ resetPasswordToken: req.params.token, resetPasswordExpires: { $gt: Date.now() } }, function(err, user) {
               if (!user) {
-                res.render('message', { message : 'Password reset link is invalid or has expired.' });                
+                res.render('forgot', {message : 'Password reset link is invalid or has expired.' });                
               }
               if(req.body.password === req.body.confirm) {
+                console.log("password confirmed!");
                 user.setPassword(req.body.password, function(err) {
                   user.resetPasswordToken = undefined;
                   user.resetPasswordExpires = undefined;
@@ -227,7 +232,7 @@ module.exports = function (app) {
                   });
                 })
               } else {
-                  res.render("message", {message : "Passwords do not match."});
+                  res.render("reset", {token : req.params.token, message : "Passwords do not match."});
               }
             });
           },
@@ -241,7 +246,7 @@ module.exports = function (app) {
             });
             var mailOptions = {
               to: user.username,
-              from: 'quacomo.mail@mail.com',
+              from: '<Sahayahastham> quacomo.mail@mail.com',
               subject: 'Your password has been changed',
               text: 'Hello,\n\n' +
                 'This is a confirmation that the password for your account ' + user.username + ' has just been changed.\n'

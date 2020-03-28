@@ -57,7 +57,7 @@
 
     <div class="container">
 
-		<form action="/reset/<%=token%>" method="POST">
+		<form action="/reset/<%= token %>" method="POST">
 
 			<div class="form-group">
 				<label for="password"><%=__('password')%></label>
@@ -76,7 +76,9 @@
             
 			
 
-        </form>
+		</form>
+		
+		<% if(message) { %> <div class="alert alert-danger" role="alert"><%= message %> </div><% } %>
         
 	</div><!-- container ends  -->
 	
