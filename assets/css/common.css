@@ -26,3 +26,12 @@ body {
     width: 100%;
     height: 100px;
 }
+
+.field-icon {
+    float: right;
+    margin-left: -25px;
+    margin-top: -25px;
+    position: relative;
+    z-index: 2;
+  }
+  
