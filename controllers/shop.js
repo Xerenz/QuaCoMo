@@ -16,7 +16,6 @@ module.exports = function (app) {
 
 
     app.get('/home',(req,res)=>{
-        console.log(items)
         res.render("home", {items: items});
     })
 
