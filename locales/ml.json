@@ -40,11 +40,11 @@
 	"your_store": "താങ്കളുടെ കട ഇപ്പൊൾ",
 	"closed": "പ്രവർത്തിക്കുന്നില്ല",
 	"open": "പ്രവർത്തിക്കുന്നു ",
-	"click_to_change": "മാറ്റാൻ ഇവിടെ ഞെക്കുക",
-	"forgot_password": "forgot_password",
-	"Email": "Email",
-	"Forgot_password": "Forgot_password",
-	"Forgot": "Forgot",
-	"confirm_password": "confirm_password",
-	"Reset": "Reset"
+	"click_to_change": "മാറ്റാൻ ഇവിടെ അമർത്തുക",
+	"forgot_password": "പാസ്വേഡ് മറന്നോ?",
+	"Forgot": "മറന്നു",
+	"confirm_password": "പാസ്സ്വേർഡ് ആവർത്തിക്കുക",
+	"Reset": "റീസെറ്റ്",
+	"email": "ഇ-മെയിൽ",
+	"reset_mail_info": "നിങ്ങളുടെ രജിസ്റ്റർ ചെയ്ത ഇമെയിൽ വിലാസത്തിലേക്ക് പാസ്‌വേഡ് പുനസജ്ജീകരണ മെയിൽ അയയ്ക്കും. എന്തെങ്കിലും പ്രശ്‌നങ്ങൾ നേരിടുന്നുണ്ടെങ്കിൽ, ഞങ്ങളെ ബന്ധപ്പെടുക."
 }

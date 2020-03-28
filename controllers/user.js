@@ -126,7 +126,7 @@ module.exports = function (app) {
     });
 
     app.get("/forgot", function(req, res) {
-        res.render("forgot");
+        res.render("forgot", {message: false});
     })
     
     app.post('/forgot', 

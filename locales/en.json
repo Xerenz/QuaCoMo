@@ -38,5 +38,9 @@
 	"your_store": "Your store is marked as ",
 	"closed": "Closed",
 	"open": "Open",
-	"click_to_change": "Click to change."
+	"click_to_change": "Click to change.",
+	"forgot_password": "Forgot password?",
+	"Forgot": "Forgot",
+	"email": "E-mail",
+	"reset_mail_info": "A password reset mail will be sent to your registered email address. If you still face any problems. Contact Us : "
 }
