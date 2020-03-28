@@ -32,7 +32,7 @@ module.exports = function (app) {
                 let redirectTo = req.session.redirectTo ? req.session.redirectTo : '/shops/'; //TODO
                 delete req.session.redirectTo;
                 req.flash("success", "Good to see you again, " + user.username);
-                res.redirect(redirectTo);
+                res.redirect('/shops');
             });
         })(req, res, next);
     });

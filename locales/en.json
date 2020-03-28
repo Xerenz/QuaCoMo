@@ -47,5 +47,7 @@
 	"select_location": "Select Location",
 	"edit": "edit",
 	"delete": "delete",
-	"ADD_SHOP" : "ADD SHOP"
+	"ADD_SHOP": "ADD SHOP",
+	"edit_shop_title": "Edit Shop",
+	"edit_shop_desc": "Edit the details of your shop."
 }
