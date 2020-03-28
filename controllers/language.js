@@ -3,14 +3,16 @@ const i18n = require('i18n');
 module.exports = function (app) {
 
     app.get("/malayalam", function (req, res) {
-        i18n.setLocale('ml');
+        console.log(req.cookies.lang);
+        res.cookie("lang", 'ml');
         let redirectTo = req.session.redirectTo ? req.session.redirectTo : '/shops/new'; //TODO
         delete req.session.redirectTo;
         res.redirect(redirectTo);
     });
 
     app.get("/english", function (req, res) {
-        i18n.setLocale('en');
+        console.log(req.cookies.lang);
+        res.cookie("lang", 'en');
         let redirectTo = req.session.redirectTo ? req.session.redirectTo : '/shops/new'; //TODO
         delete req.session.redirectTo;
         res.redirect(redirectTo);
