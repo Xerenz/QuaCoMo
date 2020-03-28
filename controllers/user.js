@@ -252,7 +252,7 @@ module.exports = function (app) {
             });
           }
         ], function(err) {
-          res.redirect('/home');
+          res.redirect('/login');
         });
     });
         
