@@ -67,10 +67,10 @@ module.exports = function (app) {
 
         User.register(newUser, req.body.password, (err, user) => {
             if (err) {
-                if (err.name === 'MongoError' && err.code === 11000) {
+                if (err.name === 'UserExistsError') {
                     // Duplicate email
-                    console.log("error", "That email has already been registered.");
-                    error = "That email has already been registered."
+                    console.log("error", "That phone has already been registered.");
+                    error = "A user with that Phone number already exists."
                     return res.redirect("/register");
                 }
                 // Some other error

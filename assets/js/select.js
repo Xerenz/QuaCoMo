@@ -11,6 +11,17 @@ $(document).ready(function () {
 		$("#locality").append(new Option(x, x));
 	});
 
+	myMap = map(695001);
+
+	$("#pincode").change(function() {
+		console.log('change')
+		let pin = $("#pincode").val();
+		if(Object.keys(pinlookup).includes(pin)){
+			panMapTo(pin);
+			return;
+		}
+	});
+
 
 	$("#location").click(function() {
 		let pin = $("#pincode").val();
@@ -18,7 +29,7 @@ $(document).ready(function () {
 			alert("Please enter correct Pincode first.\nദയവായി ശരിയായ പിൻകോട് ആദ്യം നൽകുക");
 			return;
 		}
-		map(pin)
+		mymap = map(pin)
 	})
 	
 	/*states.forEach(state => {
@@ -44,6 +55,10 @@ $(document).ready(function () {
 	// });
 });
 
+function panMapTo(map, pincode){
+	latlon = pinlookup[pincode]
+	map.panTo(new L.LatLng(latlon[0], latlon[1]))
+}
 
 function map(pincode) {
 
@@ -71,5 +86,7 @@ function map(pincode) {
         console.log(cords)
     }
 
-    mymap.on('click', onMapClick);
+	mymap.on('click', onMapClick);
+	
+	return mymap;
 }
