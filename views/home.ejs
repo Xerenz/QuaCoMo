@@ -76,8 +76,8 @@
 						<label><%=__('item_sel')%> : </label>
 						<% items.forEach(function(item) { %>
 						<br>
-						<label for="<%= item[0] %>"></label>
-						<input type="checkbox" name="items" id="<%= item[0] %>" value="<%= item[0] %>"> <%= item[1] %>
+						<label for="<%= item %>"></label>
+						<input type="checkbox" name="items" id="<%= item %>" value="<%= item %>"> <%= item %>
 						<% }); %>
 						<!-- Add more items -->
 					</div>

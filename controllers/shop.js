@@ -7,16 +7,12 @@ const data = require("../utils/data");
 var urlencodedParser = bodyParser.urlencoded({ extended: false });
 var isLoggedIn = middleware.isLoggedIn;
 
-var items = [];
-data.commodities.forEach(function (item) {
-    items.push([item.split(' - ')[0], item])
-})
 
 module.exports = function (app) {
 
 
     app.get('/home', (req, res) => {
-        res.render("home", { items: items });
+        res.render("home", { items: data.commodities });
     })
 
     app.get("/shops", isLoggedIn, function (req, res) {
@@ -26,7 +22,7 @@ module.exports = function (app) {
     });
 
     app.get("/shops/new", isLoggedIn, function (req, res) {
-        res.render("addShop", { items: items });
+        res.render("addShop", { items: data.commodities });
     });
 
     app.post("/shops/new",
