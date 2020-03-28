@@ -4,7 +4,7 @@ module.exports = function (app) {
 
 
     app.get("/malayalam", changeLanguage,function (req, res) {
-        console.log(req.cookies.lang);
+        res.setLocale('ml');
         res.cookie("lang", 'ml');
         let redirectTo = req.session.redirectTo ? req.session.redirectTo : '/shops/new'; //TODO
         delete req.session.redirectTo;
@@ -13,7 +13,7 @@ module.exports = function (app) {
 
 
     app.get("/english",changeLanguage, function (req, res) {
-        console.log(req.cookies.lang);
+        res.setLocale('en');
         res.cookie("lang", 'en');
         let redirectTo = req.session.redirectTo ? req.session.redirectTo : '/shops/new'; //TODO
         delete req.session.redirectTo;
