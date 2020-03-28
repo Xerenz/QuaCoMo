@@ -78,11 +78,14 @@
 			<div>
 				<button type="button" id="location" class="btn btn-dark"><%= __('loc') %></button>
 			</div>
+			<div class="form-group">
+				<label><%=__('select_location')%> : </label>
+				<input name="location" id="loc" hidden>
+			</div>
 			<div id="mapid" style="
 					height: 350px;
 					margin: 10px;
 				"></div>
-			<input name="location" id="loc" hidden>
 			<div class="form-group">
 				<label><%=__('address')%> :</label>
 				<input class="form-control" type="text" name="address" id="address">
