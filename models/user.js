@@ -8,6 +8,9 @@ var userSchema = mongoose.Schema({
     password: String,
     isAdmin: Boolean,
     shops: [{ type: mongoose.Schema.Types.ObjectId, ref: "Shop" }],
+    resetPasswordToken : {type: String},
+    resetPasswordExpires : {type: Date},
+
 });
 
 userSchema.plugin(passportLocalMongoose);
