@@ -86,10 +86,6 @@ module.exports = function (app) {
         });
     });
 
-    app.get('/home',(req,res)=>{
-        res.render("home")
-    })
-
     app.get('/report',(req,res)=>{
         res.render('report')
     })

@@ -4,11 +4,16 @@ module.exports = function (app) {
 
     app.get("/malayalam", function (req, res) {
         i18n.setLocale('ml');
-        // TODO: write redirect
+        let redirectTo = req.session.redirectTo ? req.session.redirectTo : '/shops/new'; //TODO
+        delete req.session.redirectTo;
+        res.redirect(redirectTo);
     });
 
     app.get("/english", function (req, res) {
         i18n.setLocale('en');
+        let redirectTo = req.session.redirectTo ? req.session.redirectTo : '/shops/new'; //TODO
+        delete req.session.redirectTo;
+        res.redirect(redirectTo);
     });
 
 

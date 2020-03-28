@@ -59,7 +59,9 @@ app.use((req, res, next) => {
 	next();
 });
 
-
+app.get('/', function(req, res){
+    res.redirect('/home');
+})
 
 userController(app);
 adminController(app);

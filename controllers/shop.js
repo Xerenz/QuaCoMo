@@ -2,11 +2,22 @@ const Shop = require("../models/shop");
 const User = require("../models/user");
 const bodyParser = require("body-parser");
 const middleware = require("../utils/middleware");
+const data = require("../utils/data");
 
 var urlencodedParser = bodyParser.urlencoded({ extended: false });
 var isLoggedIn = middleware.isLoggedIn;
 
+var items = [];
+data.commodities.forEach(function(item) {
+    items.push([item.split(' - ')[0], item])
+})
+
 module.exports = function (app) {
+
+
+    app.get('/home',(req,res)=>{
+        res.render("home", {items: items});
+    })
 
     app.get("/shops", isLoggedIn, function (req, res) {
         User.findById(req.user.id).populate('shops').exec((err,user) => {
@@ -15,7 +26,7 @@ module.exports = function (app) {
     });
 
     app.get("/shops/new", isLoggedIn, function (req, res) {
-        res.render("addShop");
+        res.render("addShop", {items: items});
     });
 
     app.post("/shops/new",
@@ -24,11 +35,13 @@ module.exports = function (app) {
         function (req, res) {
             let shop = new Shop({
                 name: req.body.name,
-                state: req.body.state,
-                district: req.body.district,
+                state: "Kerala",
+                district: "Thiruvananthapuram",
                 locality: req.body.locality,
                 phone: req.body.phone,
-                landmark: req.body.landmark,
+                pincode: req.body.pincode,
+                location: req.body.location,
+                address: req.body.address,
                 isOpen: true,
                 items: req.body.items,
                 owner: req.user.id
