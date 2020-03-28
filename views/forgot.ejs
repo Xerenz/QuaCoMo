@@ -48,7 +48,7 @@
     <div class="container">
         <nav aria-label="breadcrumb">
 			<ol class="breadcrumb">
-				<li class="breadcrumb-item"><a href="/login">Login</a></li>
+				<li class="breadcrumb-item"><a href="/login"><%=__('login')%></a></li>
 				<li class="breadcrumb-item active" aria-current="page">Forgot_password</li>
 			</ol>
 		</nav>
@@ -59,7 +59,7 @@
 		<form action="/forgot" method="POST">
 
 			<div class="form-group">
-				<label for="password"><%=__('Email')%></label>
+				<label for="password"><%=__('email')%></label>
 				<input name="email" type="email" id="pass" class="form-control" required>
             </div>
             
@@ -68,14 +68,12 @@
             </button>
             <br><br>
             
-			<% if(error) { %> <div class="alert alert-danger" role="alert"><%= error %> </div><% } %>
+			<% if(message) { %> <div class="alert alert-danger" role="alert"><%= message %> </div><% } %>
 
         </form>
         
         <div class="alert alert-info">
-            A password reset mail will be sent to your registered email address.
-            If you still face any problems. Contact Us : 
-            
+			<%=__('reset_mail_info')%>
         </div>
 	
 	</div><!-- container ends  -->

@@ -5,7 +5,7 @@ const passport = require("passport");
 const bodyParser = require('body-parser');
 const nodemailer = require("nodemailer");
 const async = require("async");
-const crypto = require("crypt");
+const crypto = require("crypto");
 
 var urlencodedParser = bodyParser.urlencoded({ extended: false })
 
@@ -126,10 +126,12 @@ module.exports = function (app) {
     });
 
     app.get("/forgot", function(req, res) {
-        res.render("forgot");
+        res.render("forgot", {message: false});
     })
     
-    app.post('/forgot', function(req, res, next) {
+    app.post('/forgot', 
+    urlencodedParser,
+    function(req, res, next) {
         async.waterfall([
           function(done) {
               console.log("first func");
@@ -168,7 +170,7 @@ module.exports = function (app) {
               }
             });
             var mailOptions = {
-              to: user.username,
+              to: user.email,
               from: 'quacomo.mail@gmail.com',
               subject: 'Password Reset',
               text: 'You are receiving this because you have requested the reset of the password for your account.\n\n' +
@@ -178,7 +180,7 @@ module.exports = function (app) {
             };
             smtpTransport.sendMail(mailOptions, function(err) {
               console.log('mail sent');
-              res.render("user/forgot",{message:"A Password reset link has been sent to your email"});
+              res.render("forgot",{message:"A Password reset link has been sent to your email"});
               done(err, 'done');
             });
           }
@@ -204,14 +206,16 @@ module.exports = function (app) {
         });
     });
     
-    app.post('/reset/:token', function(req, res) {
+    app.post('/reset/:token', 
+    urlencodedParser, 
+    function(req, res) {
         async.waterfall([
           function(done) {
             User.findOne({ resetPasswordToken: req.params.token, resetPasswordExpires: { $gt: Date.now() } }, function(err, user) {
               if (!user) {
                 res.render('message', { message : 'Password reset link is invalid or has expired.' });                
               }
-              else if(req.body.password === req.body.confirm) {
+              if(req.body.password === req.body.confirm) {
                 user.setPassword(req.body.password, function(err) {
                   user.resetPasswordToken = undefined;
                   user.resetPasswordExpires = undefined;
