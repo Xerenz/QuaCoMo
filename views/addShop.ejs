@@ -69,17 +69,17 @@
 			</div> -->
 			<div class="form-group">
 				<label><%=__('loc_sel')%> : </label>
-				<select id="locality" class="form-control" name="locality"></select>
+				<select id="locality" class="form-control" name="locality" required></select>
 			</div>
 			<div class="form-group">
 				<label><%=__('pin_sel')%> : </label>
-				<input class="form-control" type="number" name="pincode" id="pincode">
+				<input class="form-control" type="number" name="pincode" id="pincode" required>
 			</div>
 			<div>
 				<button type="button" id="location" class="btn btn-link"><%= __('loc') %></button>
 			</div>
 			<div class="form-group">
-				<label><%=__('select_location')%> : </label>
+				<label><%=__('select_location')%> : </label><br><span class="badge badge-warning">Please mark your locality on the map below for more accuracy</span>
 				<input name="location" id="loc" hidden>
 			</div>
 			<div id="mapid" style="
@@ -88,7 +88,7 @@
 				"></div>
 			<div class="form-group">
 				<label><%=__('address')%> :</label>
-				<input class="form-control" type="text" name="address" id="address">
+				<input class="form-control" type="text" name="address" id="address" required>
 			</div>
 			<div class="form-group">
 				<label><%=__('item_avl')%> : </label>
