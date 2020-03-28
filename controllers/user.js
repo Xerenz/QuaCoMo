@@ -206,14 +206,16 @@ module.exports = function (app) {
         });
     });
     
-    app.post('/reset/:token', function(req, res) {
+    app.post('/reset/:token', 
+    urlencodedParser, 
+    function(req, res) {
         async.waterfall([
           function(done) {
             User.findOne({ resetPasswordToken: req.params.token, resetPasswordExpires: { $gt: Date.now() } }, function(err, user) {
               if (!user) {
                 res.render('message', { message : 'Password reset link is invalid or has expired.' });                
               }
-              else if(req.body.password === req.body.confirm) {
+              if(req.body.password === req.body.confirm) {
                 user.setPassword(req.body.password, function(err) {
                   user.resetPasswordToken = undefined;
                   user.resetPasswordExpires = undefined;
