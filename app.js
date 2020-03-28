@@ -4,6 +4,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const session = require("express-session");
 const passport = require('passport');
+const cookieParser = require('cookie-parser');
 const LocalStrategy = require('passport-local');
 
 
@@ -19,6 +20,7 @@ i18n.configure({
     directory: __dirname + '/locales',
     defaultLocale: 'ml',
     register: global,
+    cookie: 'lang',
 });
 
 mongoose.connect("mongodb://localhost/quacomo")
@@ -32,6 +34,7 @@ app.set('view engine', 'ejs');
 app.use("/assets/css", express.static(__dirname + "/assets/css"));
 app.use("/assets/img", express.static(__dirname + "/assets/img"));
 app.use("/assets/js", express.static(__dirname + "/assets/js"));
+app.use(cookieParser());
 app.use('/en', express.static(__dirname + '/views'));
 app.use('/ml', express.static(__dirname + '/views'));
 app.use(i18n.init)
