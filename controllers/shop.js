@@ -96,7 +96,7 @@ module.exports = function (app) {
             Shop.findById(req.params.id, (err, shop) => {
                 if (err)
                     return console.log(err);
-                res.render("editShop", { shop: shop, items: items });
+                res.render("editShop", { shop: shop, items: data.commodities });
             });
         });
 
