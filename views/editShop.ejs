@@ -54,9 +54,10 @@
 		-->
 			<div class="form-group">	
 				<label>Items Available : </label>
-				<input type="checkbox" name="items" id="milk" value="milk"> milk
-				<input type="checkbox" name="items" id="groceries" value="groceries"> groceries
-				<input type="checkbox" name="items" id="veg" value="vegetables"> vegetables
+				<% items.forEach(function(item) { %>
+					<br>
+					<input type="checkbox" name="items" id="<%= item[0] %>" value="<%= item[0] %>"> <%= item[1] %>
+				<% }); %>
 				<!-- Add more items -->
 			</div>	
 			<div>
