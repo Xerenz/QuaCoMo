@@ -74,12 +74,9 @@
 			<div class="form-group">	
 				<label><%=__('item_avl')%> : </label>
 				<% items.forEach(function(item) { %>
+					<br>
 					<input type="checkbox" name="items" id="<%= item[0] %>" value="<%= item[0] %>"> <%= item[1] %>
 				<% }); %>
-
-				<input type="checkbox" name="items" id="milk" value="milk"> milk
-				<input type="checkbox" name="items" id="groceries" value="groceries"> groceries
-				<input type="checkbox" name="items" id="veg" value="vegetables"> vegetables
 				<!-- Add more items -->
 			</div>	
 			<div>
