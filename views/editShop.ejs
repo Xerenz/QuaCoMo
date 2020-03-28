@@ -57,7 +57,7 @@
 				<% items.forEach(function(item) { %>
 					<br>
 					<label for="<%= item %>">
-						<input type="checkbox" name="items" id="<%= item %>" value="<%= item %>" <% if(shop.items.includes(item)) { %> checked <% } %> > <%= item %>
+						<input type="checkbox" name="items" id="<%= item %>" value="<%= item %>" <% if (shop.items) { if(shop.items.includes(item)) { %> checked <% }} %> > <%= item %>
 					</label>
 					
 				<% }); %>
