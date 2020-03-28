@@ -29,11 +29,11 @@
 	"report_gov": "സര്‍ക്കാറിന് റിപ്പോര്‍ട്ട്‌ നല്‍കുക",
 	"or": "അല്ലെങ്കിൽ",
 	"loc": "കട സ്ഥിതി ചെയ്യുന്ന സ്ഥലം കണ്ടെത്തുക",
-	"s_closed": "Your shop is marked as closed.",
-	"s_open": "Your shop is marked as open",
-	"s_closed_mark": "Click button to mark your shop closed",
-	"s_open_mark": "Click button to mark your shop open",
-	"mark_avl_items": "Mark the items available in your shop.",
-	"edit": "Edit",
-	"delete": "Delete"
+	"s_closed": "നിങ്ങളുടെ കട അടച്ചതായി അടയാളപ്പെടുത്തിയിരിക്കുന്നു",
+	"s_open": "നിങ്ങളുടെ കട തുറന്നതായി അടയാളപ്പെടുത്തിയിരിക്കുന്നു",
+	"s_closed_mark": "നിങ്ങളുടെ കട അടച്ചതായി അടയാളപ്പെടുത്താന്‍ ബട്ടണ്‍ അമര്‍ത്തുക",
+	"s_open_mark": "നിങ്ങളുടെ കട തുറന്നതായി അടയാളപ്പെടുത്താന്‍ ബട്ടണ്‍ അമര്‍ത്തുക",
+	"mark_avl_items": "നിങ്ങളുടെ കടയില്‍ ലഭ്യമായിട്ടുള്ള ഇനങ്ങള്‍ അടയാളപ്പെടുത്തുക",
+	"edit": "എഡിറ്റുചെയ്യുക",
+	"delete": "ഡിലീറ്റ് ചെയ്യുക"
 }
