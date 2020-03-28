@@ -56,6 +56,7 @@
 				<label>Items Available : </label>
 				<% items.forEach(function(item) { %>
 					<br>
+					<label for="<%= item[0] %"></label>
 					<input type="checkbox" name="items" id="<%= item[0] %>" value="<%= item[0] %>"> <%= item[1] %>
 				<% }); %>
 				<!-- Add more items -->
