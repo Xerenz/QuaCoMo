@@ -5,7 +5,7 @@ const passport = require("passport");
 const bodyParser = require('body-parser');
 const nodemailer = require("nodemailer");
 const async = require("async");
-const crypto = require("crypt");
+const crypto = require("crypto");
 
 var urlencodedParser = bodyParser.urlencoded({ extended: false })
 
@@ -129,7 +129,9 @@ module.exports = function (app) {
         res.render("forgot");
     })
     
-    app.post('/forgot', function(req, res, next) {
+    app.post('/forgot', 
+    urlencodedParser,
+    function(req, res, next) {
         async.waterfall([
           function(done) {
               console.log("first func");
@@ -168,7 +170,7 @@ module.exports = function (app) {
               }
             });
             var mailOptions = {
-              to: user.username,
+              to: user.email,
               from: 'quacomo.mail@gmail.com',
               subject: 'Password Reset',
               text: 'You are receiving this because you have requested the reset of the password for your account.\n\n' +
@@ -178,7 +180,7 @@ module.exports = function (app) {
             };
             smtpTransport.sendMail(mailOptions, function(err) {
               console.log('mail sent');
-              res.render("user/forgot",{message:"A Password reset link has been sent to your email"});
+              res.render("forgot",{message:"A Password reset link has been sent to your email"});
               done(err, 'done');
             });
           }
