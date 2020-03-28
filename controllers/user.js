@@ -3,6 +3,9 @@ const Report = require("../models/request");
 
 const passport = require("passport");
 const bodyParser = require('body-parser');
+const nodemailer = require("nodemailer");
+const async = require("async");
+const crypto = require("crypt");
 
 var urlencodedParser = bodyParser.urlencoded({ extended: false })
 
@@ -57,6 +60,7 @@ module.exports = function (app) {
         let newUser = new User({
             name: req.body.name,
             username: req.body.username,
+            email : req.body.email,
             aadhar: req.body.aadhar,
             isAdmin: false,
         });
@@ -128,14 +132,19 @@ module.exports = function (app) {
     app.post('/forgot', function(req, res, next) {
         async.waterfall([
           function(done) {
+              console.log("first func");
             crypto.randomBytes(20, function(err, buf) {
+                if (err)
+                    console.log(err);
+                console.log(buf);
               var token = buf.toString('hex');
+              console.log(token);
               done(err, token);
             });
           },
           function(token, done) {
             console.log("second function fired");
-            User.findOne({ username: req.body.email }, function(err, user) {
+            User.findOne({ email: req.body.email }, function(err, user) {
                 if (err) console.log("second was the error");
               if (!user) {
                 req.flash('error', 'No account with that email address exists.');
@@ -174,7 +183,9 @@ module.exports = function (app) {
             });
           }
         ], function(err) {
+            console.log("No idea why");
           if (err) {        
+            console.log(err);
             return next(err);
           }
           res.redirect('/forgot');
