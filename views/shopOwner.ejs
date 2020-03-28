@@ -24,7 +24,7 @@
 		</nav>
 		<div class="jumbotron jumbotron-fluid">
 			<div class="container">
-			 <a href="/shops/new"> <button class="btn btn-danger">ADD SHOP</button></a> 
+			 <a href="/shops/new"> <button class="btn btn-danger"><i class="fas fa-plus"></i> ADD SHOP</button></a> 
 			 <a href=""> <button class="btn btn-primary">EDIT PROFILE</button></a> 
 			</div>
         </div>
@@ -35,43 +35,37 @@
             <div class="card">
                 <div class="card-header bg-dark text-white">
                 <span class="font-weight-bold"> <%= shop.name %> </span> 
-                </div>
+            </div>
                 
                 <div class="card-body">
-                    <% if(shop.isOpen == true){ %>
-                        
+
+                    
+
+                    <% if(shop.isOpen == true){ %>                     
                         <div class="alert alert-success" role="alert">
-                            <%=__('s_open')%>
-
+                            <%=__('your shop is marked as ')%>  
+                            <a href="/shops/<%= shop._id %>/status"><button type="button" class="btn btn-success">Opened</button></a>
+         
                     <%} else { %>
-
                         <div class="alert alert-danger" role="alert">
-                            <%=__('s_closed')%>
+                            <%=__('your shop is marked as ')%>
+                            <a href="/shops/<%= shop._id %>/status"><button type="button" class="btn btn-danger"><i class="far fa-check-circle"></i> Closed</button></a>
+                            
+                    <% }%>
+                    <a href="/shops/<%= shop._id %>/status"><small class="text-info"><%=__('click to change')%></small></a>
+                    </div>
 
-                   <% }%>
-                     
-                    </div>
+                   
+                    
     
-                    <div class="custom-control custom-switch">
-                        <% if (shop.isOpen == true) { %>
-                            <a href="/shops/<%= shop._id %>/status"><button type="button" class="btn btn-danger">Close Shop</button></a>
-                            <br>
-                            <small class="text-danger"><%=__('s_closed_mark')%></small>
-                        <% } else { %>
-                            <a href="/shops/<%= shop._id %>/status"><button type="button" class="btn btn-success"><i class="far fa-check-circle"></i> Open Shop</button></a>
-                            <br>
-                            <small class="text-danger"><%=__('s_open_mark')%></small>
-                        <% } %>
-                        <br>
-                    </div>
                 
                     <ul class="list-group list-group-flush font-weight-light">
                         <li class="list-group-item"></li>
-                        <li class="list-group-item "><%=__('mark_avl_items')%></li>
+                        <li class="list-group-item "><%=__('Items Available in your shop')%></li>
 
                        <% shop.items.forEach((item)=>{ %>
 
-                        <li class="list-group-item"><input type="checkbox" name="items" id="<%= item %>" value="<%= item %>"> <label for="<%= item %>"><%= item %></li>
+                        <li class="list-group-item"><i class="fas fa-check-circle text-success"></i> <%= item %></li>
 
                        <%  }) %>
                         
