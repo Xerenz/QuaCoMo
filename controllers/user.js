@@ -26,7 +26,7 @@ module.exports = function (app) {
             }
             req.logIn(user, err => {
                 if (err) { return next(err); }
-                let redirectTo = req.session.redirectTo ? req.session.redirectTo : '/shops/new'; //TODO
+                let redirectTo = req.session.redirectTo ? req.session.redirectTo : '/shops/'; //TODO
                 delete req.session.redirectTo;
                 req.flash("success", "Good to see you again, " + user.username);
                 res.redirect(redirectTo);
@@ -86,7 +86,7 @@ module.exports = function (app) {
 
                 req.logIn(user, function (err) {
                     if (err) return next(err);
-                    return res.redirect("/shops/new");
+                    return res.redirect("/shops/");
                 });
 
             })(req, res, next);
