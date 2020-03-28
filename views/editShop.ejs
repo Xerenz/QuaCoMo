@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Shop Registration</title>
+	<meta charset="utf-8">
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+	
+	<%- include("partials/libraries") %> 
+
+</head>
+<body>
+	
+	<!-- Here goes navbar -->
+	<%- include("partials/nav") %>
+	<!-- Header starts here -->
+	<div class="space-100"></div>
+	<div class="container">
+		<nav aria-label="breadcrumb">
+			<ol class="breadcrumb">
+			  <li class="breadcrumb-item"><a href="/shops">ShopOwnerDash</a></li>
+			  <li class="breadcrumb-item active" aria-current="page">editShop</li>
+			</ol>
+		</nav>
+		<div class="jumbotron jumbotron-fluid">
+			<div class="container">
+			  <h2 class="font-weight-lighter">Edit Shop Details</h2>
+			  <br>
+			  <p class="lead">Edit details of your shop</p>
+			</div>
+		</div>
+	</div>
+
+	<!--  form starts here -->
+
+	<div class="container">
+
+		<form method="POST" action="/shops/<%=shop._id%>/edit"	id="shopownerForm">
+			<div class="form-group">
+				<label>Shop Name : </label>
+				<input class="form-control" type="text" name="name" id="shop" value="<%=shop.name%>" required>
+			</div>	
+			<div class="form-group">
+				<label>Phone Number : </label>
+				<input class="form-control" type="text" name="phone" id="phone" value="<%=shop.phone%>" required>
+				<p id="phoneValidation"></p>
+			</div>
+			<!--
+			<div>
+				<label>Select State : </label>
+				<select id="state"></select>
+			</div>
+		-->
+			<div class="form-group">	
+				<label>Items Available : </label>
+				<input type="checkbox" name="items" id="milk" value="milk"> milk
+				<input type="checkbox" name="items" id="groceries" value="groceries"> groceries
+				<input type="checkbox" name="items" id="veg" value="vegetables"> vegetables
+				<!-- Add more items -->
+			</div>	
+			<div>
+				<button type="submit" id="submit" class="btn btn-dark">Submit</button>
+			</div>
+		</form>	
+	</div>
+
+
+
+	<!-- Here is the footer -->
+
+	<div class="space-100"></div>
+	<div class="footer bg-dark"></div>
+
+</body>
+</html>

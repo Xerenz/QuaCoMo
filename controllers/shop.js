@@ -11,8 +11,6 @@ module.exports = function (app) {
     app.get("/shops", isLoggedIn, function (req, res) {
         User.findById(req.user.id).populate('shops').exec((err,user) => {
             res.render("shopOwner", { user: user });
-            console.log(user)
-            
         });
     });
 
@@ -55,26 +53,67 @@ module.exports = function (app) {
             });
         });
 
-    app.post("/shop/:id/update",
+    app.get("/shops/:id/status",
+        isLoggedIn,
         urlencodedParser,
         function (req, res) {
-            // add items to the array
-            // delete items to the array
             // toggle isOpen
+            Shop.findById(req.params.id, (err, shop) => {
+                if (err)
+                    return console.log(err);
+                
+                if (shop.isOpen) 
+                    shop.isOpen = false;
+                else 
+                    shop.isOpen = true;
 
-            if (req.body.toggle == "true")
-                var toggle = true;
-            else
-                var toggle = false;
-
-            console.log(item);
-
-            Shop.findByIdAndUpdate(req.params.id, {
-                $set: { isOpen: toggle, items: items }
-            }, shop => {
-                console.log("items updated");
-
-                return res.redirect("/shop");
+                shop.save(err => {
+                    if (err)
+                        return console.log(err)
+                    console.log("update made");
+                    
+                    return res.redirect("/shops");
+                });
             });
+    }); 
+    
+    app.get("/shops/:id/edit", 
+    isLoggedIn, 
+    urlencodedParser,
+    (req, res) => {
+        Shop.findById(req.params.id, (err, shop) => {
+            if (err)
+                return console.log(err);
+            res.render("editShop", {shop : shop});
         });
+    });
+
+    app.post("/shops/:id/edit", 
+    isLoggedIn,
+    urlencodedParser,
+    (req, res) => {
+        Shop.findByIdAndUpdate(req.params.id, 
+            {$set : {
+                name : req.body.name,
+                phone : req.body.phone,
+                items : req.body.items
+            }},
+            (err, shop) => {
+                if (err)
+                    return console.log(err);
+                console.log("shop updated");
+
+                return res.redirect("/shops");
+            })
+    });
+
+    app.get("/shops/:id/delete", 
+    isLoggedIn,
+    (req, res) => {
+        Shop.findByIdAndDelete(req.params.id, (err) => {
+            if (err)
+                return console.log(err);
+            return res.redirect("/shops");
+        });
+    });
 }

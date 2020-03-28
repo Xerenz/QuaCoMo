@@ -53,10 +53,16 @@
                     </div>
     
                     <div class="custom-control custom-switch">
-                        <input type="checkbox" name="toggle" class="custom-control-input" id="<%= shop._id %>" value="true"  <% if(shop.isOpen == true){ %>  checked <%}%> >
-                        <label class="custom-control-label" for="<%= shop._id %>">Open/closed</label>
+                        <% if (shop.isOpen == true) { %>
+                            <a href="/shop/<%= shop._id %>/status"><button type="button" class="btn btn-danger">Close Shop</button></a>
+                            <br>
+                            <small class="text-danger">Click button to mark your shop closed.</small>
+                        <% } else { %>
+                            <a href="/shop/<%= shop._id %>/status"><button type="button" class="btn btn-success"><i class="far fa-check-circle"></i> Open Shop</button></a>
+                            <br>
+                            <small class="text-danger">Click button to mark your shop open</small>
+                        <% } %>
                         <br>
-                        <small class="text-danger">Toggle the switch to mark your shop closed or open</small>
                     </div>
                 
                     <ul class="list-group list-group-flush font-weight-light">
@@ -71,6 +77,12 @@
                         
                         
                       </ul>
+
+                      <br>
+                      <div>
+                        <a href="/shops/<%=shop._id%>/edit"><button class="btn btn-dark">Edit</button></a>
+                        <a href="/shops/<%=shop._id%>/delete"><button class="btn btn-danger">Delete</button></a>
+                      </div>
                 </div>
     
             </div>
