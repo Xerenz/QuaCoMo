@@ -36,6 +36,6 @@
 	"s_open_mark": "Click button to mark your shop open",
 	"mark_avl_items": "Mark the items available in your shop.",
 	"edit": "Edit",
-	"delete": "Delete"
-
+	"delete": "Delete",
+	"select_location": "Please mark your shop's location on the map."
 }
