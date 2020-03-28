@@ -2,6 +2,7 @@ const i18n = require('i18n');
 
 module.exports = function (app) {
 
+
     app.get("/malayalam", function (req, res) {
         console.log(req.cookies.lang);
         res.cookie("lang", 'ml');
@@ -9,6 +10,7 @@ module.exports = function (app) {
         delete req.session.redirectTo;
         res.redirect(redirectTo);
     });
+
 
     app.get("/english", function (req, res) {
         console.log(req.cookies.lang);
@@ -24,4 +26,11 @@ module.exports = function (app) {
         i18n.setLocale(newLocale);
         res.send("This is working just fine");
     });
+
+    function changeLanguage(req,res,next){
+        req.session.redirectTo = req.headers.referer || req.originalUrl || req.url
+        console.log("req.session.redirectUrl" + req.session.redirectTo)
+        next()
+    }
+
 }
