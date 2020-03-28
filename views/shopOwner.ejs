@@ -61,14 +61,15 @@
                 
                     <ul class="list-group list-group-flush font-weight-light">
                         <li class="list-group-item"></li>
-                        <li class="list-group-item "><%=__('item_avl')%></li>
+                        <% if (shop.items) { %>
+                            <li class="list-group-item "><%=__('item_avl')%></li>
 
-                       <% shop.items.forEach((item)=>{ %>
+                            <% shop.items.forEach((item)=>{ %>
 
-                        <li class="list-group-item"><i class="fas fa-check-circle text-success"></i> <%= item %></li>
+                            <li class="list-group-item"><i class="fas fa-check-circle text-success"></i> <%= item %></li>
 
-                       <%  }) %>
-                        
+                            <%  }) %>
+                        <% } %>
                         
                       </ul>
 
