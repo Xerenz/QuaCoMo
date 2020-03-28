@@ -17,7 +17,7 @@ $(document).ready(function () {
 		console.log('change')
 		let pin = $("#pincode").val();
 		if(Object.keys(pinlookup).includes(pin)){
-			panMapTo(pin);
+			panMapTo(myMap,pin);
 			return;
 		}
 	});
