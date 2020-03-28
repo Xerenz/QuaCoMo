@@ -2,14 +2,14 @@ const i18n = require('i18n');
 
 module.exports = function (app) {
 
-    app.get("/malayalam", function (req, res) {
+    app.get("/malayalam",changeLanguage, function (req, res) {
         i18n.setLocale('ml');
         let redirectTo = req.session.redirectTo ? req.session.redirectTo : '/shops/new'; //TODO
         delete req.session.redirectTo;
         res.redirect(redirectTo);
     });
 
-    app.get("/english", function (req, res) {
+    app.get("/english", changeLanguage,function (req, res) {
         i18n.setLocale('en');
         let redirectTo = req.session.redirectTo ? req.session.redirectTo : '/shops/new'; //TODO
         delete req.session.redirectTo;
@@ -22,4 +22,11 @@ module.exports = function (app) {
         i18n.setLocale(newLocale);
         res.send("This is working just fine");
     });
+
+    function changeLanguage(req,res,next){
+        req.session.redirectTo = req.headers.referer || req.originalUrl || req.url
+        console.log("req.session.redirectUrl" + req.session.redirectTo)
+        next()
+    }
+
 }
