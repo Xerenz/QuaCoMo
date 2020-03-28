@@ -1,21 +1,29 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 	<title>Shop Registration</title>
 	<meta charset="utf-8">
 	<meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-	
-	<%- include("partials/libraries") %> 
-	
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+	<%- include("partials/libraries") %>
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+        integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+        crossorigin="" />
+	<script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+    integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+    crossorigin=""></script>
+	<script type="text/javascript" src="../assets/js/data.js"></script>
 	<script type="text/javascript" src="../assets/js/select.js"></script>
-	
-	
+
+
 
 </head>
+
 <body>
-	
+
 	<!-- Here goes navbar -->
 	<%- include("partials/nav") %>
 	<!-- Header starts here -->
@@ -23,14 +31,14 @@
 	<div class="container">
 		<nav aria-label="breadcrumb">
 			<ol class="breadcrumb">
-			  <li class="breadcrumb-item"><a href="/shops">ShopOwnerDash</a></li>
-			  <li class="breadcrumb-item active" aria-current="page">addShop</li>
+				<li class="breadcrumb-item"><a href="/shops">ShopOwnerDash</a></li>
+				<li class="breadcrumb-item active" aria-current="page">addShop</li>
 			</ol>
 		</nav>
 		<div class="jumbotron jumbotron-fluid">
 			<div class="container">
-			  <h1 class="font-weight-lighter"><%=__('s_reg_title')%></h1>
-			  <p class="lead"><%=__('s_reg_desc')%></p>
+				<h1 class="font-weight-lighter"><%=__('s_reg_title')%></h1>
+				<p class="lead"><%=__('s_reg_desc')%></p>
 			</div>
 		</div>
 	</div>
@@ -39,11 +47,11 @@
 
 	<div class="container">
 
-		<form method="POST" action="/shops/new"	id="shopownerForm">
+		<form method="POST" action="/shops/new" id="shopownerForm">
 			<div class="form-group">
 				<label><%=__('s_name')%> : </label>
 				<input class="form-control" type="text" name="name" id="shop" required>
-			</div>	
+			</div>
 			<div class="form-group">
 				<label><%=__('phone')%> : </label>
 				<input class="form-control" type="text" name="phone" id="phone" required>
@@ -55,34 +63,43 @@
 				<select id="state"></select>
 			</div>
 			-->
-			<div class="form-group">
+			<!-- <div class="form-group">
 				<label><%=__('dist_sel')%> : </label>
 				<select id="district" class="form-control" name="district"></select>
-			</div>
+			</div> -->
 			<div class="form-group">
 				<label><%=__('loc_sel')%> : </label>
 				<select id="locality" class="form-control" name="locality"></select>
 			</div>
 			<div class="form-group">
 				<label><%=__('pin_sel')%> : </label>
-				<input class="form-control" type="text" name="pincode" id="pincode" >
+				<input class="form-control" type="number" name="pincode" id="pincode">
 			</div>
-			<div class="form-group">	
+			<div>
+				<button type="button" id="location" class="btn btn-dark"><%= __('loc') %></button>
+			</div>
+			<div id="mapid" style="
+					width: 350px;
+					height: 350px;
+					margin: 20px;
+				"></div>
+			<input name="location" id="loc" hidden>
+			<div class="form-group">
 				<label><%=__('address')%> :</label>
-				<input class="form-control" type="text" name="address" id="address" >
+				<input class="form-control" type="text" name="address" id="address">
 			</div>
-			<div class="form-group">	
+			<div class="form-group">
 				<label><%=__('item_avl')%> : </label>
 				<% items.forEach(function(item) { %>
-					<br>
-					<input type="checkbox" name="items" id="<%= item[0] %>" value="<%= item[0] %>"> <%= item[1] %>
+				<br>
+				<input type="checkbox" name="items" id="<%= item[0] %>" value="<%= item[0] %>"> <%= item[1] %>
 				<% }); %>
 				<!-- Add more items -->
-			</div>	
+			</div>
 			<div>
 				<button type="submit" id="submit" class="btn btn-dark"><%=__('submit')%></button>
 			</div>
-		</form>	
+		</form>
 	</div>
 
 
@@ -93,4 +110,5 @@
 	<div class="footer bg-dark"></div>
 
 </body>
+
 </html>
