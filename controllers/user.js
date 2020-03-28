@@ -6,10 +6,13 @@ const bodyParser = require('body-parser');
 
 var urlencodedParser = bodyParser.urlencoded({ extended: false })
 
+var error = false;
+
 module.exports = function (app) {
 
     app.get("/login", function (req, res) {
-        res.render("login");
+        res.render("login", {error: error});
+        error = false;
     });
 
     // login logic: app.post("/login", middleware, callback)
@@ -18,11 +21,12 @@ module.exports = function (app) {
             if (err) { return next(err); }
             if (!user) {
                 req.flash("error", "Invalid username or password");
+                error = "Invalid username or password";
                 return res.redirect('/login');
             }
             req.logIn(user, err => {
                 if (err) { return next(err); }
-                let redirectTo = req.session.redirectTo ? req.session.redirectTo : '/shops/new'; //TODO
+                let redirectTo = req.session.redirectTo ? req.session.redirectTo : '/shops/'; //TODO
                 delete req.session.redirectTo;
                 req.flash("success", "Good to see you again, " + user.username);
                 res.redirect(redirectTo);
@@ -41,7 +45,8 @@ module.exports = function (app) {
     app.get("/register", function (req, res) {
         // i18n.setLocale('en')
         console.log(res.__('name'));
-        res.render("register");
+        res.render("register", {error: error});
+        error = false;
     });
 
 
@@ -61,11 +66,13 @@ module.exports = function (app) {
                 if (err.name === 'MongoError' && err.code === 11000) {
                     // Duplicate email
                     console.log("error", "That email has already been registered.");
+                    error = "That email has already been registered."
                     return res.redirect("/register");
                 }
                 // Some other error
                 req.flash("error", "Something went wrong...");
                 console.log("error", err);
+                error = err.message;
                 return res.redirect("/register");
             }
             console.log('status: ', req.isAuthenticated());
@@ -79,7 +86,7 @@ module.exports = function (app) {
 
                 req.logIn(user, function (err) {
                     if (err) return next(err);
-                    return res.redirect("/shops/new");
+                    return res.redirect("/shops/");
                 });
 
             })(req, res, next);
