@@ -3,7 +3,7 @@ const i18n = require('i18n');
 module.exports = function (app) {
 
 
-    app.get("/malayalam", function (req, res) {
+    app.get("/malayalam", changeLanguage,function (req, res) {
         console.log(req.cookies.lang);
         res.cookie("lang", 'ml');
         let redirectTo = req.session.redirectTo ? req.session.redirectTo : '/shops/new'; //TODO
@@ -12,7 +12,7 @@ module.exports = function (app) {
     });
 
 
-    app.get("/english", function (req, res) {
+    app.get("/english",changeLanguage, function (req, res) {
         console.log(req.cookies.lang);
         res.cookie("lang", 'en');
         let redirectTo = req.session.redirectTo ? req.session.redirectTo : '/shops/new'; //TODO
@@ -29,7 +29,6 @@ module.exports = function (app) {
 
     function changeLanguage(req,res,next){
         req.session.redirectTo = req.headers.referer || req.originalUrl || req.url
-        console.log("req.session.redirectUrl" + req.session.redirectTo)
         next()
     }
 
