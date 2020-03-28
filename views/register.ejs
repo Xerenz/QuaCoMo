@@ -46,12 +46,19 @@
 	  <!-- Header starts here -->
 	<div class="space-100"></div>
 	<div class="container">
+<<<<<<< HEAD
+		<span><%=__('is_shop_owner')%> </span>
+		<a href="/login"><%=__('login')%></a> <%=__('or')%> <a href="/register"><%=__('reg')%></a>.
+		<br><br>
 		<nav aria-label="breadcrumb">
+=======
+		<!-- <nav aria-label="breadcrumb">
+>>>>>>> 00232e28fcfa541127e1921239b31a24c1d161eb
 			<ol class="breadcrumb">
-			  <li class="breadcrumb-item"><a href="/home"><%=__('home')%></a></li>
+			  <li class="breadcrumb-item"><a href="/"><%=__('home')%></a></li>
 			  <li class="breadcrumb-item active" aria-current="page"><%=__('reg')%></li>
 			</ol>
-		</nav>
+		</nav> -->
 		<div class="jumbotron jumbotron-fluid">
 			<div class="container">
 			  <h1 class="font-weight-lighter"><%=__('reg_title')%></h1>
@@ -65,6 +72,7 @@
     <!-- <div class="overlay">Loading</div> -->
 
     <div class="container">
+		<% if(error) { %> <div class="alert alert-danger" role="alert"><%= error %> </div><% } %>
 
 		<form action="/register" method="POST">
 

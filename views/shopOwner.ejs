@@ -25,7 +25,7 @@
 		<div class="jumbotron jumbotron-fluid">
 			<div class="container">
 			 <a href="/shops/new"> <button class="btn btn-danger"><i class="fas fa-plus"></i> ADD SHOP</button></a> 
-			 <a href=""> <button class="btn btn-primary">EDIT PROFILE</button></a> 
+			 <!-- <a href=""> <button class="btn btn-primary">EDIT PROFILE</button></a>  -->
 			</div>
         </div>
         
@@ -75,7 +75,7 @@
                       <br>
                       <div>
                         <a href="/shops/<%=shop._id%>/edit"><button class="btn btn-dark"><%=__('edit')%></button></a>
-                        <a href="/shops/<%=shop._id%>/delete"><button class="btn btn-danger"><%=__('delete')%></button></a>
+                        <a href="/shops/<%=shop._id%>/delete"><button class="btn btn-danger" onclick="return confirm('Do you want to delete this shop ! This action cannot be reversed');" ><%=__('delete')%></button></a>
                       </div>
                 </div>
     

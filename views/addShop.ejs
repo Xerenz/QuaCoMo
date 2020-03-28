@@ -94,7 +94,7 @@
 				<label><%=__('item_avl')%> : </label>
 				<% items.forEach(function(item) { %>
 				<br>
-				<input type="checkbox" name="items" id="<%= item[0] %>" value="<%= item[0] %>"> <%= item[1] %>
+				<label><input type="checkbox" name="items" id="<%= item[0] %>" value="<%= item[0] %>"> <%= item[1] %></label>
 				<% }); %>
 				<!-- Add more items -->
 			</div>
