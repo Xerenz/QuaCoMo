@@ -54,11 +54,11 @@
     
                     <div class="custom-control custom-switch">
                         <% if (shop.isOpen == true) { %>
-                            <a href="/shop/<%= shop._id %>/status"><button type="button" class="btn btn-danger">Close Shop</button></a>
+                            <a href="/shops/<%= shop._id %>/status"><button type="button" class="btn btn-danger">Close Shop</button></a>
                             <br>
                             <small class="text-danger">Click button to mark your shop closed.</small>
                         <% } else { %>
-                            <a href="/shop/<%= shop._id %>/status"><button type="button" class="btn btn-success"><i class="far fa-check-circle"></i> Open Shop</button></a>
+                            <a href="/shops/<%= shop._id %>/status"><button type="button" class="btn btn-success"><i class="far fa-check-circle"></i> Open Shop</button></a>
                             <br>
                             <small class="text-danger">Click button to mark your shop open</small>
                         <% } %>
