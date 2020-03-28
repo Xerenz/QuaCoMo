@@ -7,7 +7,18 @@ const data = require("../utils/data");
 var urlencodedParser = bodyParser.urlencoded({ extended: false });
 var isLoggedIn = middleware.isLoggedIn;
 
+var items = [];
+data.commodities.forEach(function(item) {
+    items.push([item.split(' - ')[0], item])
+})
+
 module.exports = function (app) {
+
+
+    app.get('/home',(req,res)=>{
+        console.log(items)
+        res.render("home", {items: items});
+    })
 
     app.get("/shops", isLoggedIn, function (req, res) {
         User.findById(req.user.id).populate('shops').exec((err,user) => {
@@ -18,10 +29,6 @@ module.exports = function (app) {
     });
 
     app.get("/shops/new", isLoggedIn, function (req, res) {
-        var items = [];
-        data.commodities.forEach(function(item) {
-            items.push([item.split(' - ')[0], item])
-        })
         res.render("addShop", {items: items});
     });
 
