@@ -26,8 +26,8 @@ body {
 
 p {
     font-family: 'Poppins', sans-serif;
-    font-size: 1.1em;
-    font-weight: 300;
+    /* font-size: 1.1em; */
+    /* font-weight: 300; */
     line-height: 1.7em;
     color: #999;
 }
@@ -40,7 +40,7 @@ a, a:hover, a:focus {
 
 #sidebar {
     
-    background: black;
+    background: rgb(26, 26, 26);
     color: #fff;
     transition: all 0.3s;
     box-shadow: rgba(0, 0, 0, 0.671) 2px 0px 10px;
@@ -48,12 +48,13 @@ a, a:hover, a:focus {
 
 #sidebar .sidebar-header {
     padding: 20px;
-    background: black;
+    background:rgb(26, 26, 26);
 }
 
 #sidebar ul.components {
     padding: 20px 0;
-    border-bottom: 1px solid #47748b;
+    /* border-bottom: 1px solid #47748b; */
+    /* border-bottom: 1px solid #505050; */
 }
 
 #sidebar ul p {
@@ -71,18 +72,18 @@ a, a:hover, a:focus {
     background: #fff;
 }
 .activesub{
-    color: #7386D5;
-    background: #fff;
+    /* color: #7386D5; */
+    /* background: #fff; */
 }
 
 #sidebar ul li.active > a, a[aria-expanded="true"] {
-    color: #fff;
-    background: #6d7fcc;
+    /* color: #fff; */
+    /* background: #6d7fcc; */
 }
 ul ul a {
     font-size: 0.9em !important;
     padding-left: 30px !important;
-    background: #6d7fcc;
+    /* background: #6d7fcc; */
 }
 /* DashBoard */
 
