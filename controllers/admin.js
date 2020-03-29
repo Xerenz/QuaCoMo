@@ -8,10 +8,10 @@ var urlencodedParser = bodyParser.urlencoded({ extended: false });
 module.exports = function (app) {
 
     app.get("/admin/", middleware.hasAdminPrivelages, function (req, res) {
-        res.render("addShop");
+        res.render("admin", {message : false});
     });
 
-    app.get("/admin/users", middleware.hasAdminPrivelages, function (req, res) {
+    app.get("/admin/data", middleware.hasAdminPrivelages, function (req, res) {
         
         User.find()
         .populate('shops')
@@ -31,5 +31,42 @@ module.exports = function (app) {
         });
     });
 
+    app.get("/admin/users", 
+    middleware.hasAdminPrivelages,
+    (req, res) => {
+        User.find({}, (err, users) => {
+            if (err) {
+                console.log(err);
+                return res.redirect("/admin");
+            }
 
+            res.render("showReg", {data : users});
+        });
+    });
+
+    app.get("/admin/shops", 
+    middleware.hasAdminPrivelages,
+    (req, res) => {
+        Shop.find({}, (err, shops) => {
+            if (err) {
+                console.log(err);
+                return res.redirect("/admin");
+            }
+
+            res.render("showReg", {data : shops});
+        });
+    });
+
+    app.get("/admin/reports", 
+    middleware.hasAdminPrivelages,
+    (req, res) => {
+        User.find({}, (err, reports) => {
+            if (err) {
+                console.log(err);
+                return res.redirect("/admin");
+            }
+
+            res.render("showReg", {data : reports});
+        });
+    });
 }
