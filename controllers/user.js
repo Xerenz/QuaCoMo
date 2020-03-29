@@ -1,6 +1,7 @@
 const User = require('../models/user');
 const Report = require("../models/request");
 
+const bcrypt = require('bcrypt');
 const passport = require("passport");
 const bodyParser = require('body-parser');
 const nodemailer = require("nodemailer");
@@ -56,12 +57,13 @@ module.exports = function (app) {
     app.post("/register", urlencodedParser, (req, res, next) => {
         console.log('in the route')
         console.log(req.body);
+        let hash = bcrypt.hashSync(req.body.aadhar, 10);
 
         let newUser = new User({
             name: req.body.name,
             username: req.body.username,
             email : req.body.email,
-            aadhar: req.body.aadhar,
+            aadhar: hash,
             isAdmin: false,
         });
 
