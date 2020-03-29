@@ -97,34 +97,6 @@ module.exports = function (app) {
         });
     });
 
-    app.get('/report',(req,res)=>{
-        res.render('report')
-    })
-
-    app.post("/report", urlencodedParser, (req, res) => {
-
-        let report = new Report({
-            name : req.body.name,
-            phone : req.body.phone,
-            district : req.body.district,
-            panchayath : req.body.panchayath,
-            locality : req.body.locality,
-            state : "Kerala",
-            items : req.body.items,
-            description : req.body.description,
-            ip_address : req.connection.remoteAddress,
-            timestamp : Date()
-        });
-
-        report.save(err => {
-            if (err)
-                return console.log(err);
-            console.log("request submited");
-
-            return res.redirect("/home");
-        });
-    });
-
     app.get("/forgot", function(req, res) {
         res.render("forgot", {message: false});
     })

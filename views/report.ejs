@@ -9,6 +9,7 @@
 	
 	<%- include("partials/libraries") %> 
 	
+	<script type="text/javascript" src="../assets/js/data.js"></script>
 	<script type="text/javascript" src="../assets/js/select.js"></script>
 	<link rel="stylesheet" type="text/css" href="../assets/css/shop.css">
 	
@@ -39,6 +40,8 @@
 
 	<div class="container">
 
+			<% if(message) { %> <div class="alert alert-danger" role="alert"><%= message %> </div><% } %>			
+
 		<form method="POST" action="/report"	id="shopownerForm">
 			<div class="form-group">
 				<label><%=__('name')%> : </label>
@@ -55,20 +58,23 @@
 				<select id="state"></select>
 			</div>
 			-->
+			<!--
 			<div class="form-group">
 				<label><%=__('dist_sel')%> : </label>
 				<select id="district" class="form-control" name="district" required></select>
 			</div>
+			-->
 			<div class="form-group">
 				<label><%=__('loc_sel')%> : </label>
 				<select id="locality" class="form-control" name="locality" ></select>
 			</div>
 			<div class="form-group">	
 				<label><%=__('items_short')%> :</label> <br>
-				<input type="checkbox" name="items" id="milk" value="milk"> milk
-				<input type="checkbox" name="items" id="groceries" value="groceries"> groceries
-				<input type="checkbox" name="items" id="veg" value="vegetables"> vegetables
-				<!-- Add more items -->
+				<label><%=__('item_avl')%> : </label>
+				<% items.forEach(function(item) { %>
+					<br>
+					<label><input type="checkbox" name="items" id="<%= item %>" value="<%= item %>"> <%= item %></label>
+				<% }); %>
 			</div>	
 			<div class="form-group">
 				<label><%=__('complaint')%> : </label>
