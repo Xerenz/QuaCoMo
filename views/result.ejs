@@ -81,45 +81,27 @@
     <div class="container">
 
         <!-- ----------- card start -------------- -->
+    
+        <% shops.forEach( (shop) => { %>
+
         <div class="card">
             <div class="card-body">
-              <h5 class="card-title">Shop name</h5>
-              <p class="card-text">445 Mount Eden Road, Mount Eden, Auckland.</p>
-              <p class="card-text"> <a href="tel:8075678756" >8075876587</a> &nbsp;&nbsp;&nbsp; <a href="">(open in maps)</a></p>
+              <h5 class="card-title"> <%= shop.name %> </h5>
+              <p class="card-text"> <%= shop.address %> </p>
+              <p class="card-text"> <a href="tel:<%= shop.phone %>" ><%= shop.phone %></a> &nbsp;&nbsp;&nbsp; <a href="https://www.google.com/maps?q=<%= shop.location %>">Get directions.</a></p>
               <div class="overflow-box">
-                <small> &nbsp;<i class="fas fa-check-circle text-success"></i> milk </small>
-                <small> &nbsp;<i class="fas fa-check-circle text-success"></i> gorcery </small>
-                <small> &nbsp;<i class="fas fa-check-circle text-success"></i> meat </small>
-                <small> &nbsp;<i class="fas fa-check-circle text-success"></i> mask </small>
-                <small> &nbsp;<i class="fas fa-check-circle text-success"></i> medicine </small>
-                <small> &nbsp;<i class="fas fa-check-circle text-success"></i> milk </small>
-                <small> &nbsp;<i class="fas fa-check-circle text-success"></i> meat </small>
-                <small> &nbsp;<i class="fas fa-check-circle text-success"></i> food </small>
+
+                <% shop.items.forEach( (item) => { %>
+
+                  <small> &nbsp;<i class="fas fa-check-circle text-success"></i> <%= item %> </small>
+
+                <%  } ) %>
+
               </div>
             </div>
           </div>
 
-        <!-- ----------- card ends -------------- -->
-
-
-        <!-- ----------- card start -------------- -->
-        <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">Shop name</h5>
-              <p class="card-text">445 Mount Eden Road, Mount Eden, Auckland.</p>
-              <p class="card-text"> <a href="tel:8075678756" >8075876587</a> &nbsp;&nbsp;&nbsp; <a href="">(open in maps)</a></p>
-              <div class="overflow-box">
-                <small> &nbsp;<i class="fas fa-check-circle text-success"></i> milk </small>
-                <small> &nbsp;<i class="fas fa-check-circle text-success"></i> gorcery </small>
-                <small> &nbsp;<i class="fas fa-check-circle text-success"></i> meat </small>
-                <small> &nbsp;<i class="fas fa-check-circle text-success"></i> mask </small>
-                <small> &nbsp;<i class="fas fa-check-circle text-success"></i> medicine </small>
-                <small> &nbsp;<i class="fas fa-check-circle text-success"></i> milk </small>
-                <small> &nbsp;<i class="fas fa-check-circle text-success"></i> meat </small>
-                <small> &nbsp;<i class="fas fa-check-circle text-success"></i> food </small>
-              </div>
-            </div>
-          </div>
+        <%  } ) %>
 
         <!-- ----------- card ends -------------- -->
 

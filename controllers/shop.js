@@ -7,12 +7,58 @@ const data = require("../utils/data");
 var urlencodedParser = bodyParser.urlencoded({ extended: false });
 var isLoggedIn = middleware.isLoggedIn;
 
+var error = false;
 
 module.exports = function (app) {
 
 
     app.get('/home', (req, res) => {
-        res.render("home", { items: data.commodities });
+        res.render("home", { items: data.commodities , error: error});
+    })
+
+    app.post('/home', urlencodedParser, (req, res) => {
+        var pincodes = data.pincode[req.body.pincode];
+        if (!pincodes) {
+            error = 'Entered pincode is not in the district selected. Please contact us that is not the case.';
+            return res.redirect('/home');
+        }
+
+        // let query = [];
+        // pincodes.forEach(pin => {
+        // 	query.push({ pincode: pin })
+        // });
+
+        console.log(req.body)
+
+        var queryText = {};
+        if (typeof req.body.items !== 'undefined' && req.body.items.length > 0) {
+            queryText = { "items": { $elemMatch: { "$in": req.body.items, "$exists": true } } };
+        }
+        console.log(queryText)
+        Shop
+            .find(queryText)
+            .where("isOpen").equals(true)
+            .where("pincode").in(pincodes)
+            .exec((err, shops) => {
+                console.log(err);
+                if(err){
+                    console.log(err);
+                    error = err.message;
+                    return res.redirect('/home');
+                }
+                // console.log(shops);
+                if(shops.length == 0){
+                    error = "There are no shops that match your query.";
+                    return res.redirect('/home');
+                }
+
+                var coordinates = [];
+                shops.forEach(shop => {
+                    coordinates.push(shop.location);
+                });
+                console.log(req.body.pincode, coordinates);
+                res.render("result", {shops: shops})
+            })
     })
 
     app.get("/shops", isLoggedIn, function (req, res) {

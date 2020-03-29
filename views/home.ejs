@@ -17,32 +17,33 @@
 
 	<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
 		<a class="navbar-brand" href="/home"><%=__('brand')%></a>
-		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-		  <span class="navbar-toggler-icon"></span>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+			aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
 		</button>
-	  
+
 		<div class="collapse navbar-collapse " id="navbarSupportedContent">
 			<ul class="navbar-nav mr-auto">
-			  <!-- <li class="nav-item active">
+				<!-- <li class="nav-item active">
 				<a class="nav-link" href="/home"><%=__('home')%><span class="sr-only">(current)</span></a>
 			  </li>
 			  <li class="nav-item">
 				<a class="nav-link" href="#">Help</a>
 			  </li> -->
-			  
+
 			</ul>
 			<ul class="navbar-nav">
 				<li class="nav-item active">
-				  <a class="nav-link" href="/english">English</a>
+					<a class="nav-link" href="/english">English</a>
 				</li>
 				<li class="nav-item active">
-				  <a class="nav-link" href="/malayalam">മലയാളം</a>
+					<a class="nav-link" href="/malayalam">മലയാളം</a>
 				</li>
-			  </ul>
-		  
+			</ul>
+
 		</div>
-		
-	  </nav>
+
+	</nav>
 	<!-- Header starts here -->
 	<div class="space-100"></div>
 
@@ -63,20 +64,23 @@
 						<label><%=__('dist_sel')%> : </label>
 						<select id="district" class="form-control" required></select>
 					</div> -->
+
+					<% if(error) { %> <div class="alert alert-danger" role="alert"><%= error %> </div><% } %>
 					<div class="form-group">
 						<label><%=__('loc_sel')%> : </label>
 						<select id="locality" class="form-control" required></select>
 					</div>
 					<div class="form-group">
 						<label><%=__('pin_sel')%> : </label>
-						<input id="pincode-home" pattern="[0-9]{10}" placeholder="eg: 695001" min="695001" max="695615" name="pincode" type="number" class="form-control" required></select>
+						<input id="pincode-home" pattern="[0-9]{10}" placeholder="eg: 695001" min="695001" max="695615"
+							name="pincode" type="number" class="form-control" required></select>
 					</div>
 					<div class="form-group">
 						<label><%=__('item_sel')%> : </label>
 						<% items.forEach(function(item) { %>
 						<br>
-						<label for="<%= item %>"></label>
-						<input type="checkbox" name="items" id="<%= item %>" value="<%= item %>"> <%= item %>
+						<label><input type="checkbox" name="items" id="<%= item %>" value="<%= item %>">
+							<%= item %></label>
 						<% }); %>
 						<!-- Add more items -->
 					</div>
