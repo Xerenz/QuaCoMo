@@ -14,6 +14,7 @@ const userController = require("./controllers/user");
 const adminController = require("./controllers/admin");
 const shopController = require("./controllers/shop");
 const languageController = require("./controllers/language");
+const customerController = require("./controllers/customer");
 
 i18n.configure({
     locales:['en', 'ml'],
@@ -70,6 +71,7 @@ userController(app);
 adminController(app);
 shopController(app);
 languageController(app);
+customerController(app);
 
 const PORT = process.env.PORT || 8000;
 
