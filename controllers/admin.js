@@ -7,8 +7,24 @@ var urlencodedParser = bodyParser.urlencoded({ extended: false });
 
 module.exports = function (app) {
 
-    app.get("/admin/", middleware.hasAdminPrivelages, function (req, res) {
-        res.render("admin", {message : false});
+    app.get("/admin/",
+     //middleware.hasAdminPrivelages, 
+     function (req, res) {
+        User.find()
+        .populate('shops')
+        .exec(function(err, users) {
+
+            Shop.find({}, (err, shops) => {
+            console.log(users);
+            console.log(shops);
+
+            res.render("admin", {
+                message : false, 
+                userCount : users.length, 
+                shopCount : shops.length});
+
+            })
+        });
     });
 
     app.get("/admin/data", middleware.hasAdminPrivelages, function (req, res) {
@@ -40,12 +56,13 @@ module.exports = function (app) {
                 return res.redirect("/admin");
             }
 
-            res.render("showReg", {data : users});
+            // res.render("userReg", {data : users});
+            res.json({data : users});
         });
     });
 
     app.get("/admin/shops", 
-    middleware.hasAdminPrivelages,
+    // middleware.hasAdminPrivelages,
     (req, res) => {
         Shop.find({}, (err, shops) => {
             if (err) {
@@ -53,7 +70,7 @@ module.exports = function (app) {
                 return res.redirect("/admin");
             }
 
-            res.render("showReg", {data : shops});
+            res.render("shopReg", {data : shops, message : false});
         });
     });
 
@@ -66,7 +83,8 @@ module.exports = function (app) {
                 return res.redirect("/admin");
             }
 
-            res.render("showReg", {data : reports});
+            // res.render("showReg", {data : reports});
+            res.json({data : reports});
         });
     });
 }

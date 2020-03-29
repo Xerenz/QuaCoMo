@@ -21,6 +21,9 @@
             <ul class="list-unstyled components">
                 <p>Dashboards</p>
                 <li>
+                    <a href="/admin/">Main Dashboard</a>
+                </li>
+                <li>
                     <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Registrations Details</a>
                     <ul class="collapse list-unstyled" id="homeSubmenu">
                         <li>
@@ -42,7 +45,9 @@
         <div class="container-fluid dashboard-content">
             <h1 class="m-3">Admin Dashboard</h1>
             <!--Alerts Section-->
-            <% if (message) { <div class="mx-5 alert alert-danger" role="alert"><p><%= message ></p></div> } %>
+            <% if (message) { %>
+                 <div class="mx-5 alert alert-danger" role="alert"><p><%= message %></p></div> 
+            <% } %>
             <!--End of alert Section-->
             <section class="m-5">
                 <div class="row mx-auto px-auto">
