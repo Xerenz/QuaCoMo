@@ -14,12 +14,15 @@ module.exports = function (app) {
 
     app.get('/home', (req, res) => {
         res.render("home", { items: data.commodities , error: error});
+        error = false;
     })
 
     app.post('/home', urlencodedParser, (req, res) => {
         var pincodes = data.pincode[req.body.pincode];
         if (!pincodes) {
             error = 'Entered pincode is not in the district selected. Please contact us that is not the case.';
+            res.cookie('home_error', error);
+            // TODO: cookies for error messages.
             return res.redirect('/home');
         }
 
