@@ -29,8 +29,8 @@
 		</nav>
 		<div class="jumbotron jumbotron-fluid">
 			<div class="container">
-			  <h1 class="font-weight-lighter">Report Shortage</h1>
-			  <p class="lead">In case of shortage of necessary items in your area , report here.</p>
+			  <h1 class="font-weight-lighter"><%=__('report_head')%></h1>
+			  <p class="lead"><%=__('report_desc')%></p>
 			</div>
 		</div>
 	</div>
@@ -41,11 +41,11 @@
 
 		<form method="POST" action="/report"	id="shopownerForm">
 			<div class="form-group">
-				<label>your Name : </label>
+				<label><%=__('name')%> : </label>
 				<input class="form-control" type="text" name="name" id="name" required>
 			</div>	
 			<div class="form-group">
-				<label>Phone Number : </label>
+				<label><%=__('phone')%> : </label>
 				<input class="form-control" type="text" name="phone" id="phone" pattern="[0-9]{10}" required>
 				<p id="phoneValidation"></p>
 			</div>
@@ -56,38 +56,34 @@
 			</div>
 			-->
 			<div class="form-group">
-				<label>Select District : </label>
+				<label><%=__('dist_sel')%> : </label>
 				<select id="district" class="form-control" name="district" required></select>
 			</div>
-			<div class="form-group">	
-				<label>Select Panchayat / Muncipality : </label>
-				<select id="panchayath" class="form-control" name="panchayath" required></select>
-			</div>
 			<div class="form-group">
-				<label>Select locality : </label>
+				<label><%=__('loc_sel')%> : </label>
 				<select id="locality" class="form-control" name="locality" ></select>
 			</div>
 			<div class="form-group">	
-				<label>Items that are short in your area :</label> <br>
+				<label><%=__('items_short')%> :</label> <br>
 				<input type="checkbox" name="items" id="milk" value="milk"> milk
 				<input type="checkbox" name="items" id="groceries" value="groceries"> groceries
 				<input type="checkbox" name="items" id="veg" value="vegetables"> vegetables
 				<!-- Add more items -->
 			</div>	
 			<div class="form-group">
-				<label>Comment / Description : </label>
+				<label><%=__('complaint')%> : </label>
 				<input class="form-control" type="text" name="description" id="description" required>
 			</div>
 			<div class="form-group">
 				<input type="checkbox" id="declaration" required>
 				<label for="declaration">
-					<small>I hereby declare that the details furnished above are true and correct to the best of my knowledge.</small>
+					<small><%=__('declaration')%></small>
 				</label>
 	
 			</div>
 			
 			<div>
-				<button type="submit" id="submit" class="btn btn-dark">Report shortage</button>
+				<button type="submit" id="submit" class="btn btn-dark"><%=__('report_head')%></button>
 			</div>
 		</form>	
 	</div>

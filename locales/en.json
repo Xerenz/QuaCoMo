@@ -52,5 +52,8 @@
 	"edit_shop_desc": "Edit the details of your shop.",
 	"loc_mark_verbose": "Please mark your locality on the map below for more accuracy",
 	"confirm_password": "confirm_password",
-	"reset": "reset"
+	"reset": "reset",
+	"items_short": "Items that are short in your area",
+	"complaint": "Complaint description or comments.",
+	"declaration": "I hereby declare that the details furnished above are true and correct to the best of my knowledge."
 }
