@@ -42,4 +42,9 @@ module.exports = function(app) {
                 });
         });
     });
+
+
+    app.get('/result',(req,res)=>{
+        res.render('result.ejs')
+    })
 }
