@@ -8,7 +8,7 @@ var urlencodedParser = bodyParser.urlencoded({ extended: false });
 module.exports = function (app) {
 
     app.get("/admin/",
-     //middleware.hasAdminPrivelages, 
+     middleware.hasAdminPrivelages, 
      function (req, res) {
         User.find()
         .populate('shops')
@@ -62,7 +62,7 @@ module.exports = function (app) {
     });
 
     app.get("/admin/shops", 
-    // middleware.hasAdminPrivelages,
+     middleware.hasAdminPrivelages,
     (req, res) => {
         Shop.find({}, (err, shops) => {
             if (err) {
