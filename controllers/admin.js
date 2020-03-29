@@ -16,9 +16,18 @@ module.exports = function (app) {
         User.find()
         .populate('shops')
         .exec(function(err, users) {
+
+            Shop.find({}, (err, shops) => {
             console.log(users);
+            console.log(shops);
+
+            var shopCount = shops.length;
+            var userCount = users.length;
             
-            res.render("users", {users: users})
+            res.json({users: users, shops: shops, shopCount: shopCount, userCount: userCount});
+            // res.render("users", {users: users, shops: shops, shopCount: shopCount, userCount: userCount})
+
+            })
         });
     });
 
