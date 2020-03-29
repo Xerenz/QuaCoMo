@@ -54,10 +54,10 @@ module.exports = function (app) {
 
                 var coordinates = [];
                 shops.forEach(shop => {
-                    coordinates.push(shop.location);
+                    coordinates.push(shop.location+" ");
                 });
                 console.log(req.body.pincode, coordinates);
-                res.render("result", {shops: shops})
+                res.render("result", {shops: shops, pincode: req.body.pincode, coordinates: coordinates})
             })
     })
 
