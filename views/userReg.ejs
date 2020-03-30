@@ -60,7 +60,7 @@
                 <% data.forEach(elem => { %> 
                     <div class="row mx-auto px-auto">
                                             <!-- Single card Starts here -->
-                            <div class="col col-12 col-sm-12 col-md-12 col-lg-6 mx-auto p-2">
+                            <div class="col col-12 ">
                                 <!-- giving ID is important. allenkil 
                                 card expand akilla. random id ayalum kuzhappam illa
                                 -->
@@ -74,16 +74,16 @@
                                     <div class="row my-3 p-2">
                                         
                                 
-                                        <div class="col col-12 col-sm-4 col-md-4 col-lg-4">
-                                            <div class="shopdetails">
-                                                <div>
-                                                    <h5 class="pl-2 text-center"><strong class="font-weight-bold">Email : </strong><%= elem.email %></h5>
+                                        <div class="col col-12 ">
+                                            <div class="shopdetails row">
+                                                <div class="col">
+                                                    <h5 class="pl-2 col-12"><strong class="font-weight-bold">Email : </strong><%= elem.email %></h5>
                                                 </div>
-                                                <div>
-                                                    <h5 class="pl-2 text-center"><strong class="font-weight-bold">Phone : </strong><%= elem.username %></h5>
+                                                <div class="col col-12">
+                                                    <h5 class="pl-2  col-12"><strong class="font-weight-bold">Phone : </strong><%= elem.username %></h5>
                                                 </div>
-                                                <div>
-                                                    <h5 class="pl-2 text-center"><strong class="font-weight-bold">Aadhar : </strong><%= elem.aadhar %></h5>
+                                                <div class="col col-12">
+                                                    <h5 class="pl-2  col-12"><strong class="font-weight-bold">Aadhar : </strong><%= elem.aadhar %></h5>
                                                 </div>
                                             </div>
                                         </div>
@@ -91,6 +91,7 @@
                                 </div>
                             </div>
                             <!-- Cards end here -->
+                    </div>
                     </div>
                 <% }) %>
             </section>

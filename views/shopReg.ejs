@@ -123,10 +123,9 @@
                                     <div class="row">
                                         <% if (elem.items) { %> 
                                             <% elem.items.forEach(item => { %> 
-                                                <small><i class="fas fa-check-circle text-success"></i><%= item %></small>
-                                                <!-- <div class="col col-6 col-sm-6 col-md-6 col-lg-4">
-                                                    <p class="shopItem"><%= item %></p>
-                                                </div> -->
+                                                <div class="col col-12">
+                                                <span><i class="fas fa-check-circle text-success"></i><%= item %></span>
+                                                </div>
                                             <% }) %>
                                         <% } %>
                                     </div>
