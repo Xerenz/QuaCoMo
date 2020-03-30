@@ -1,5 +1,7 @@
 const Shop = require("../models/shop");
 const User = require("../models/user");
+const Report = require("../models/request");
+
 const bodyParser = require("body-parser");
 const middleware = require("../utils/middleware");
 
@@ -8,7 +10,7 @@ var urlencodedParser = bodyParser.urlencoded({ extended: false });
 module.exports = function (app) {
 
     app.get("/admin/",
-    // middleware.hasAdminPrivelages, 
+    middleware.hasAdminPrivelages, 
      function (req, res) {
         User.find()
         .populate('shops')
@@ -48,7 +50,7 @@ module.exports = function (app) {
     });
 
     app.get("/admin/users", 
-   // middleware.hasAdminPrivelages,
+   middleware.hasAdminPrivelages,
     (req, res) => {
         User.find({})
         .exec((err, users) => {
@@ -57,15 +59,12 @@ module.exports = function (app) {
                 return res.redirect("/admin");
             }
 
-            console.log(users);
-
-            // res.render("userReg", {data : users});
-            res.json({data : users});
+            res.render("userReg", {data : users, message : false});
         });
     });
 
     app.get("/admin/shops", 
-    // middleware.hasAdminPrivelages,
+    middleware.hasAdminPrivelages,
     (req, res) => {
         Shop.find({}).populate("owner")
         .exec((err, shops) => {
@@ -79,16 +78,16 @@ module.exports = function (app) {
     });
 
     app.get("/admin/reports", 
-    //middleware.hasAdminPrivelages,
+    middleware.hasAdminPrivelages,
     (req, res) => {
-        User.find({}, (err, reports) => {
+        Report.find({}, (err, reports) => {
             if (err) {
                 console.log(err);
                 return res.redirect("/admin");
             }
 
             // res.render("showReg", {data : reports});
-            res.json({data : reports});
+            res.render("reports", {data : reports});
         });
     });
 }

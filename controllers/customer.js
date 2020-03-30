@@ -29,6 +29,7 @@ module.exports = function(app) {
             ip_address : req.connection.remoteAddress,
             timestamp : Date()
         });
+        
 
         report.save(err => {
             if (err)

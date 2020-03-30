@@ -1,0 +1,24 @@
+Reports are displayed here
+
+<div>
+    <% data.forEach(report => { %> 
+        <div>
+            <p>Name of Reportee : <%= report.name %></p>
+            <p>Contact : <%= report.phone %></p>
+
+            Details : 
+            <p>Item Shortage : </p>
+            <div>
+                <% if (report.items) { %>
+                    <% report.items.forEach(item => { %> 
+                        <li><%= item %></li>    
+                    <% }) %>
+                <% } %>
+            </div>
+            <p>Locality : <%= report.locality %></p>
+            <p>District : <%= report.district %></p>
+            <small><%= report.timestamp %></small>
+            <small><%= report.ip_address %></small>
+        </div>    
+    <% }) %>
+</div>

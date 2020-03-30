@@ -67,20 +67,24 @@
                                 <div id="<%= elem %>" onclick="cardClick(this.id)" class="card p-3 cardCollapsed mb-3">
                                     
                                     <div class="row">
-                                        <div class="col col-12 <% if(elem.isOpen)  { %> bg-success <% } else { %> bg-danger <% } %>">
                                             <div class="shopName ">
                                                 <h5><strong class="font-weight-bold">User name:</strong> <span><%= elem.name %></span> </h5>
                                             </div>
-                                        </div>
                                     </div>
                                     <div class="row my-3 p-2">
                                         
                                 
                                         <div class="col col-12 col-sm-4 col-md-4 col-lg-4">
                                             <div class="shopdetails">
-                                                <h5 class="pl-2 text-center"><strong class="font-weight-bold">Email : </strong><%= elem.email %></h5>
-                                                <h5 class="pl-2 text-center"><strong class="font-weight-bold">Phone : </strong><%= elem.username %></h5>
-                                                <h5 class="pl-2 text-center"><strong class="font-weight-bold">Aadhar : </strong><%= elem.aadhar %></h5>
+                                                <div>
+                                                    <h5 class="pl-2 text-center"><strong class="font-weight-bold">Email : </strong><%= elem.email %></h5>
+                                                </div>
+                                                <div>
+                                                    <h5 class="pl-2 text-center"><strong class="font-weight-bold">Phone : </strong><%= elem.username %></h5>
+                                                </div>
+                                                <div>
+                                                    <h5 class="pl-2 text-center"><strong class="font-weight-bold">Aadhar : </strong><%= elem.aadhar %></h5>
+                                                </div>
                                             </div>
                                         </div>
                                 
