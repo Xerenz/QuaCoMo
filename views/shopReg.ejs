@@ -56,97 +56,96 @@
 
             <section class="m-2">
                 <h3>Shop Registrations</h3>
-                <div class="row mx-auto px-auto">
-                    
-                    <!-- dynamically append the following div -->
-                    <% data.forEach(elem => { %> 
-                    <!-- Single card Starts here -->
-                        <div class="col col-12 col-sm-12 col-md-12 col-lg-6 mx-auto p-2">
-                            <!-- giving ID is important. allenkil 
-                            card expand akilla. random id ayalum kuzhappam illa
-                            -->
-                            <div id="<%= elem %>" onclick="cardClick(this.id)" class="card p-3 cardCollapsed mb-3">
-                                
-                                <div class="row">
-                                    <div class="col col-12 <% if(elem.isOpen)  { %> bg-success <% } else { %> bg-danger <% } %>">
-                                        <div class="shopName ">
-                                            <h5><strong class="font-weight-bold">Shop name:</strong> <span><%= elem.name %></span> </h5>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row my-3 p-2">
-                                    
-                            
-                                    <div class="col col-12 col-sm-4 col-md-4 col-lg-4">
-                                        <div class="shopdetails">
-                                            <h5 class="pl-2 text-center"><strong class="font-weight-bold">District: </strong>Thiruvananthapuram</h5>
-                                        </div>
-                                    </div>
-                                    <div class="col col-12 col-sm-4 col-md-4 col-lg-4">
-                                        <div class="shopdetails">
-                                            <h5 class="pl-2 text-center"><strong class="font-weight-bold">Locality: </strong><%=elem.locality%></h5>
-                                        </div>
-                                    </div>
-                                    <div class="col col-12 col-sm-4 col-md-4 col-lg-4">
-                                        <div class="shopdetails">
-                                            <h5 class="pl-2 text-center"><strong class="font-weight-bold">Pincode: </strong><%=elem.pincode%></h5>
-                                        </div>
-                                    </div>
-                                    
-                                    <!-- <div class="col col-12 col-sm-4 col-md-4 col-lg-4">
-                                        <div class="shopdetails">
-                                            <h5 class="pl-2"><strong class="font-weight-bold">Status: </strong> <span class="open">
-                                                <% if (elem.isOpen) { %>    
-                                                Open 
-                                                <% } else { %> 
-                                                Closed 
-                                            <% } %> 
-                                            </span></h5>
-                                        </div>
-                                    </div> -->
-                                </div>
-                                <div class="row my-3 p-2">
-                                    <div class="col col-12">
-                                        <div class="shopdetails">
-                                            <h5 class="pl-2 text-wrap"><strong class="font-weight-bold text-wrap">Address: </strong></h5>
-                                        </div>
-                                    </div>
-                                    <div class="col col-12">
-                                        <div class="shopdetails">
-                                            <p><%= elem.address %></p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row my-2 mx-2 p-1">
-                                    <h5 class="font-weight-bold">Items Available</h3>
-                                    
-                                </div>
-                                <div class="row">
-                                    <% if (elem.items) { %> 
-                                        <% elem.items.forEach(item => { %> 
-                                            <small> <i class="fas fa-check-circle text-success"></i> <%= item %> </small>
-                                            <!-- <div class="col col-6 col-sm-6 col-md-6 col-lg-4">
-                                                <p class="shopItem"><%= item %></p>
-                                            </div> -->
-                                        <% }) %>
-                                    <% } %>
-                                </div>
-                                <!--
-                                <div class="row">
-                                    <div class="col m-2 p-1">
-                                    <h5 class=""> <strong class="font-weight-bold p-1">Owner:</strong> Naseem Shah</h3>
-
-                                    </div>
-                                    
-                                </div>
+                <!-- dynamically append the following div -->
+                <% data.forEach(elem => { %> 
+                    <div class="row mx-auto px-auto">
+                                            <!-- Single card Starts here -->
+                            <div class="col col-12 col-sm-12 col-md-12 col-lg-6 mx-auto p-2">
+                                <!-- giving ID is important. allenkil 
+                                card expand akilla. random id ayalum kuzhappam illa
                                 -->
+                                <div id="<%= elem %>" onclick="cardClick(this.id)" class="card p-3 cardCollapsed mb-3">
+                                    
+                                    <div class="row">
+                                        <div class="col col-12 <% if(elem.isOpen)  { %> bg-success <% } else { %> bg-danger <% } %>">
+                                            <div class="shopName ">
+                                                <h5><strong class="font-weight-bold">Shop name:</strong> <span><%= elem.name %></span> </h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row my-3 p-2">
+                                        
                                 
-                            
+                                        <div class="col col-12 col-sm-4 col-md-4 col-lg-4">
+                                            <div class="shopdetails">
+                                                <h5 class="pl-2 text-center"><strong class="font-weight-bold">District: </strong>Thiruvananthapuram</h5>
+                                            </div>
+                                        </div>
+                                        <div class="col col-12 col-sm-4 col-md-4 col-lg-4">
+                                            <div class="shopdetails">
+                                                <h5 class="pl-2 text-center"><strong class="font-weight-bold">Locality: </strong><%=elem.locality%></h5>
+                                            </div>
+                                        </div>
+                                        <div class="col col-12 col-sm-4 col-md-4 col-lg-4">
+                                            <div class="shopdetails">
+                                                <h5 class="pl-2 text-center"><strong class="font-weight-bold">Pincode: </strong><%=elem.pincode%></h5>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- <div class="col col-12 col-sm-4 col-md-4 col-lg-4">
+                                            <div class="shopdetails">
+                                                <h5 class="pl-2"><strong class="font-weight-bold">Status: </strong> <span class="open">
+                                                    <% if (elem.isOpen) { %>    
+                                                    Open 
+                                                    <% } else { %> 
+                                                    Closed 
+                                                <% } %> 
+                                                </span></h5>
+                                            </div>
+                                        </div> -->
+                                    </div>
+                                    <div class="row my-3 p-2">
+                                        <div class="col col-12">
+                                            <div class="shopdetails">
+                                                <h5 class="pl-2 text-wrap"><strong class="font-weight-bold text-wrap">Address: </strong></h5>
+                                            </div>
+                                        </div>
+                                        <div class="col col-12">
+                                            <div class="shopdetails">
+                                                <p><%= elem.address %></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row my-2 mx-2 p-1">
+                                        <h5 class="font-weight-bold">Items Available</h3>
+                                        
+                                    </div>
+                                    <div class="row">
+                                        <% if (elem.items) { %> 
+                                            <% elem.items.forEach(item => { %> 
+                                                <small><i class="fas fa-check-circle text-success"></i><%= item %></small>
+                                                <!-- <div class="col col-6 col-sm-6 col-md-6 col-lg-4">
+                                                    <p class="shopItem"><%= item %></p>
+                                                </div> -->
+                                            <% }) %>
+                                        <% } %>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col m-2 p-1">
+                                        <h5 class=""> <strong class="font-weight-bold p-1">Owner:</strong><%= elem.owner.name %></h3>
+                                        <h5 class=""> <strong class="font-weight-bold p-1">Aadhar:</strong><%= elem.owner.aadhar %></h3>
+                                        <h5 class=""> <strong class="font-weight-bold p-1">Owner Contact:</strong><%= elem.owner.username %></h3>
+                                        <% if (elem.owner.email) { %> 
+                                            <h5 class=""> <strong class="font-weight-medium p-1">Owner Email:</strong><%= elem.owner.email %></h3>
+                                        <% } %>
+                                        </div>
+                                        
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                        <!-- Cards end here -->
-                    <% }) %>
-                </div>
+                            <!-- Cards end here -->
+                    </div>
+                <% }) %>
             </section>
             
 

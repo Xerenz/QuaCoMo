@@ -8,7 +8,7 @@ var urlencodedParser = bodyParser.urlencoded({ extended: false });
 module.exports = function (app) {
 
     app.get("/admin/",
-     middleware.hasAdminPrivelages, 
+    // middleware.hasAdminPrivelages, 
      function (req, res) {
         User.find()
         .populate('shops')
@@ -48,13 +48,16 @@ module.exports = function (app) {
     });
 
     app.get("/admin/users", 
-    middleware.hasAdminPrivelages,
+   // middleware.hasAdminPrivelages,
     (req, res) => {
-        User.find({}, (err, users) => {
+        User.find({})
+        .exec((err, users) => {
             if (err) {
                 console.log(err);
                 return res.redirect("/admin");
             }
+
+            console.log(users);
 
             // res.render("userReg", {data : users});
             res.json({data : users});
@@ -62,9 +65,10 @@ module.exports = function (app) {
     });
 
     app.get("/admin/shops", 
-     middleware.hasAdminPrivelages,
+    // middleware.hasAdminPrivelages,
     (req, res) => {
-        Shop.find({}, (err, shops) => {
+        Shop.find({}).populate("owner")
+        .exec((err, shops) => {
             if (err) {
                 console.log(err);
                 return res.redirect("/admin");
@@ -75,7 +79,7 @@ module.exports = function (app) {
     });
 
     app.get("/admin/reports", 
-    middleware.hasAdminPrivelages,
+    //middleware.hasAdminPrivelages,
     (req, res) => {
         User.find({}, (err, reports) => {
             if (err) {
