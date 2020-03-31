@@ -31,7 +31,7 @@ let peopleJson = {
             desc: "3rd Year Computer Science",
             links: [
                 {url: "https://github.com/Xerenz", fa: "fab fa-github"},
-                {url: "https://linkedin.com/in/jyothis-p", fa: "fab fa-linkedin-in"}
+                {url: "https://linkedin.com/in/martin-george-83381b157", fa: "fab fa-linkedin-in"}
             ]
         }
     ],
