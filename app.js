@@ -64,7 +64,7 @@ app.use((req, res, next) => {
 });
 
 app.get('/', function(req, res){
-    res.redirect('/register');
+    res.redirect('/home');
 })
 
 userController(app);
