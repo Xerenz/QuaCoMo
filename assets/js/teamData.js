@@ -22,6 +22,7 @@ let peopleJson = {
             name: "Jyothis P",
             desc: "3rd Year Computer Science",
             links: [
+                {url: "http://jyothisp.co/", fa: "fas fa-user"},
                 {url: "https://github.com/Jyothis-P", fa: "fab fa-github"},
                 {url: "https://linkedin.com/in/jyothis-p", fa: "fab fa-linkedin-in"}
             ]
