@@ -20,10 +20,17 @@ module.exports = function (app) {
             console.log(users);
             console.log(shops);
 
+            openCount = 0;
+
+            shops.forEach(shop => {
+                if (shop.isOpen) openCount += 1;
+            });
+
             res.render("admin", {
                 message : false, 
                 userCount : users.length, 
-                shopCount : shops.length});
+                shopCount : shops.length,
+                openCount : openCount});
 
             }) 
         });
