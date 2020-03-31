@@ -55,5 +55,7 @@
 	"reset": "reset",
 	"items_short": "Items that are short in your area",
 	"complaint": "Complaint description or comments.",
-	"declaration": "I hereby declare that the details furnished above are true and correct to the best of my knowledge."
+	"declaration": "I hereby declare that the details furnished above are true and correct to the best of my knowledge.",
+	"footer-1": "Developed by ",
+	"footer-2": " for DDMA TVPM."
 }
