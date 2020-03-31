@@ -19,7 +19,7 @@ function GenerateBlock(personJsonArray){
         html += GenerateCard(person)
     }
     html += '</div>'
-    console.log(html)
+    // console.log(html)
     return html
 }
 
