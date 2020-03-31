@@ -25,7 +25,7 @@ module.exports = function (app) {
                 userCount : users.length, 
                 shopCount : shops.length});
 
-            })
+            }) 
         });
     });
 
@@ -90,4 +90,30 @@ module.exports = function (app) {
             res.render("reports", {data : reports});
         });
     });
+
+    
+    app.get('/admin/home', 
+    middleware.hasAdminPrivelages,
+    (req, res) => {
+        Shop
+        .find({})
+        .where("isOpen").equals(true)
+        // .where("pincode").in(pincodes)
+        .exec((err, shops) => {
+            if(err){
+                console.log(err);
+                error = err.message;
+                return res.send(err);
+            }
+
+            var coordinates = [];
+            shops.forEach(shop => {
+                coordinates.push(shop.location+" ");
+            });
+            console.log('695001', coordinates);
+            res.render("result", {shops: shops, pincode: '695001', coordinates: coordinates})
+        })
+    })
+
+
 }
