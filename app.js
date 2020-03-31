@@ -67,6 +67,10 @@ app.get('/', function(req, res){
     res.redirect('/home');
 })
 
+app.get('/team', function(req, res){
+    res.render('team');
+})
+
 userController(app);
 adminController(app);
 shopController(app);

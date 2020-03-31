@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Team</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <style>
+        body {
+            min-height: 100vh;
+        }
+
+        
+
+        .social-link {
+            width: 30px;
+            height: 30px;
+            border: 1px solid #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+            border-radius: 50%;
+            transition: all 0.3s;
+            font-size: 0.9rem;
+        }
+
+        .social-link:hover,
+        .social-link:focus {
+            background: #ddd;
+            text-decoration: none;
+            color: #555;
+        }
+
+        * {
+            justify-self: center;
+            align-items: center;
+        }
+
+        .custom-row {
+            justify-self: center;
+            align-items: center;
+        }
+
+    </style>
+    <script src="https://kit.fontawesome.com/28937d7f46.js" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+
+    <div class="container py-5 ">
+        <div class="row text-center">
+            <div class="col-lg-8 mx-auto">
+                <h1 class="display-4">Made by</h1>
+                <p class="lead mb-0">Students of the Cochin University of Science and Technology (and a kid)</p>
+                <p class="lead">for the District Disaster Management Authority and Inter Agency Group</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="container text-center" id="root"></div>
+
+    <script src="/assets/js/teamData.js"></script>
+    <script src="/assets/js/team.js"></script>
+    <script>
+
+    document.getElementById("root").innerHTML = GenerateHTML(peopleJson)
+    
+    </script>
+</body>
+
+</html>
