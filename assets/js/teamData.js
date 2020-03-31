@@ -14,6 +14,7 @@ let peopleJson = {
             name: "Jithin K Satheesh",
             desc: "3rd Year Computer Science",
             links: [
+                {url: "https://jithinksatheesh.github.io", fa: "fas fa-user"},
                 {url: "https://github.com/JithinKSatheesh", fa: "fab fa-github"},
                 {url: "https://in.linkedin.com/in/jithin-k-satheesh-135728173", fa: "fab fa-linkedin-in"}
             ]
