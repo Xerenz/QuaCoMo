@@ -115,7 +115,7 @@ let peopleJson = {
             links: []
         },
         {
-            name: "Thejus",
+            name: "Thejus Madhavan",
             desc: "3rd Year Mechanical",
             links: []
         },
