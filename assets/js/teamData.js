@@ -84,7 +84,7 @@ let peopleJson = {
             links: []
         },
         {
-            name: "Karthik",
+            name: "Karthik Sankar",
             desc: "4th Year Mechanical",
             links: []
         },
@@ -109,7 +109,7 @@ let peopleJson = {
             links: []
         },
         {
-            name: "Suraj",
+            name: "Suraj Nair",
             desc: "4th Year Information and Technology",
             links: []
         },
