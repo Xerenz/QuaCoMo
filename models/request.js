@@ -10,6 +10,7 @@ const RequestSchema = new Schema(
         panchayath : String,
         district : String,
         state : String,
+        pincode : String,
 
         // user info
         ip_address : String,

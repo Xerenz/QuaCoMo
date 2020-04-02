@@ -27,7 +27,8 @@ module.exports = function(app) {
             items : req.body.items,
             description : req.body.description,
             ip_address : req.connection.remoteAddress,
-            timestamp : Date()
+            timestamp : Date(),
+            pincode : req.body.pincode
         });
         
 
