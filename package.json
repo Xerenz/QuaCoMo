@@ -28,7 +28,7 @@
     "cookie-parser": "^1.4.5",
     "crypt": "0.0.2",
     "ejs": "^3.0.1",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "express-session": "^1.17.0",
     "i18n": "^0.8.6",
     "mongoose": "^5.9.6",
